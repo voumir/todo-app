@@ -1,3 +1,16 @@
-<p>
-  board works!
-</p>
+<form (ngSubmit)="saveTask()">
+  <div class="form-group">
+    <input 
+      [(ngModel)]="title" 
+      name="title" 
+      (keyup.escape)="clear()"
+      class="form-control" 
+      required>
+  </div>
+</form>
+<hr>
+<ul class="list-group">
+  <app-task-item
+    *ngFor="let task of taskService.tasks$ | async"
+    [task]="task"></app-task-item>
+</ul>

@@ -15,10 +15,10 @@ export class LoginComponent {
   }
 
   loginWithFacebook() {
-    // facebook login
+    this.auth.loginWithFacebook();
   }
 
-  loginWithPassword() {
-    // password login
+  loginWithGithub() {
+    this.auth.loginWithGithub();
   }
 }

@@ -4,6 +4,8 @@ import { RoutingModule } from './app.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,14 +15,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
+import { TasksService } from './services/tasks.service';
+import { TaskItemComponent } from './components/board/task-item/task-item.component';
 
 export const firebaseConfig = {
-  apiKey: '<API_KEY>',
-  authDomain: '<AUTH_DOMAIN>',
-  databaseURL: '<URL>',
-  projectId: '<ID>',
+  apiKey: '',
+  authDomain: '',
+  databaseURL: '',
+  projectId: '',
   storageBucket: '',
-  messagingSenderId: '<MSG_ID>'
+  messagingSenderId: ''
 };
 
 @NgModule({
@@ -29,15 +34,24 @@ export const firebaseConfig = {
     HomeComponent,
     LoginComponent,
     BoardComponent,
-    NavbarComponent
+    NavbarComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RoutingModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [AuthService, AuthGuard, AngularFireAuth],
+  providers: [
+    AuthService,
+    AngularFireDatabase,
+    AuthGuard,
+    AngularFireAuth,
+    UserService,
+    TasksService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

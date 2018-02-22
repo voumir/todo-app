@@ -3,20 +3,38 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
+  uid$: Observable<string>;
 
-  constructor(private afAuth: AngularFireAuth, private route: ActivatedRoute) {
-    this.user$ = afAuth.authState;
+  constructor(
+    private afAuth: AngularFireAuth,
+    private route: ActivatedRoute) {
+      this.user$ = afAuth.authState;
+      this.uid$ = afAuth.authState.map(user => user.uid);
+  }
+
+  getURL() {
+    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
   }
 
   loginWithGoogle() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    localStorage.setItem('returnUrl', returnUrl);
+    this.getURL();
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
 
-    this.afAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  loginWithFacebook() {
+    this.getURL();
+    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
+  loginWithGithub() {
+    this.getURL();
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
   }
 
   logout() {
