@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   getURL() {
-    let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
   }
 

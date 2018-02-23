@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../../models/task';
 
 @Component({
@@ -7,6 +7,13 @@ import { Task } from '../../../models/task';
 })
 export class TaskItemComponent {
   @Input('task') task: Task;
+  @Output() update = new EventEmitter();
   constructor() { }
+
+  changeStatus() {
+    this.update.emit({
+      isDone: !this.task.isDone
+    });
+  }
 
 }

@@ -1,1 +1,5 @@
-<li class="list-group-item">{{ task.title }}</li>
+<li class="list-group-item">
+  <span (click)="changeStatus()" style="color: green">V</span>
+  {{ task.title }}
+  <span *ngIf="task.isDone">|| Completed</span>
+</li>

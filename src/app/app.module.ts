@@ -12,12 +12,12 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { BoardComponent } from './components/board/board.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TaskItemComponent } from './components/board/task-item/task-item.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { TasksService } from './services/tasks.service';
-import { TaskItemComponent } from './components/board/task-item/task-item.component';
 
 export const firebaseConfig = {
   apiKey: '',

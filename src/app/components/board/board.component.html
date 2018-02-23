@@ -12,5 +12,6 @@
 <ul class="list-group">
   <app-task-item
     *ngFor="let task of taskService.tasks$ | async"
-    [task]="task"></app-task-item>
+    [task]="task"
+    (update)="taskService.update(task, $event)"></app-task-item>
 </ul>
