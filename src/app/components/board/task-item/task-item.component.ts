@@ -7,6 +7,7 @@ import { Task } from '../../../models/task';
 })
 export class TaskItemComponent implements OnInit {
   @Input('task') task: Task;
+  @Output() remove = new EventEmitter();
   @Output() update = new EventEmitter();
 
   title = '';

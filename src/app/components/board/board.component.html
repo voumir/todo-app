@@ -13,5 +13,6 @@
   <app-task-item
     *ngFor="let task of taskService.tasks$ | async"
     [task]="task"
-    (update)="taskService.update(task, $event)"></app-task-item>
+    (update)="taskService.update(task, $event)"
+    (remove)="taskService.remove(task)"></app-task-item>
 </ul>
