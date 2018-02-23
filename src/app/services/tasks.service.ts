@@ -10,7 +10,8 @@ export class TasksService {
   tasks$: FirebaseListObservable<Task[]>;
 
   constructor(private db: AngularFireDatabase, private auth: AuthService) {
-    auth.uid$.take(1)
+    auth.uid$
+      .take(1)
       .subscribe(uid => {
         const path = `/tasks/${uid}`;
 

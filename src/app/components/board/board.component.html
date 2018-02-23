@@ -11,7 +11,7 @@
 <hr>
 <ul class="list-group">
   <app-task-item
-    *ngFor="let task of taskService.tasks$ | async"
+    *ngFor="let task of tasks$ | async"
     [task]="task"
     (update)="taskService.update(task, $event)"
     (remove)="taskService.remove(task)"></app-task-item>
