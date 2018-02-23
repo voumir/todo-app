@@ -1,5 +1,18 @@
 <li class="list-group-item">
-  <span (click)="changeStatus()" style="color: green">V</span>
-  {{ task.title }}
-  <span *ngIf="task.isDone">|| Completed</span>
+  <div *ngIf="!editing; else editForm">
+    <span (click)="toggleEdit()" style="color: blue">Edit</span>
+    <span (click)="changeStatus()" style="color: green">V</span>
+    {{ task.title }}
+    <span *ngIf="task.isDone">|| Completed</span>
+  </div>
+  <ng-template #editForm>
+    <form (ngSubmit)="saveTask()">
+      <input 
+        [(ngModel)]="title"
+        (blur)="stopEditing()"
+        (keyup.escape)="stopEditing()" 
+        name="title" 
+        type="text">
+    </form>
+  </ng-template>
 </li>
