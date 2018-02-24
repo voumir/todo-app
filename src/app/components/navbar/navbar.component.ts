@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
+  public isNavbarCollapsed = true;
 
   constructor(public auth: AuthService, private router: Router) { }
 

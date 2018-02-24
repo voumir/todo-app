@@ -2,6 +2,14 @@ a {
   cursor: pointer;
   color: #fff !important;
 }
+.navbar-toggler {
+  padding: 0;
+  .navbar-toggler-icon {
+    color: #fff;
+    font-size: 28pt;
+  }
+}
+
 .bg-dark {
   background-color: $navbar-color !important; 
 }

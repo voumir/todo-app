@@ -3,10 +3,23 @@
     <a class="navbar-brand py-2" routerLink="/">
       <h3>Tasks</h3>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+
+    <button 
+    class="navbar-toggler" 
+    type="button" 
+    (click)="isNavbarCollapsed = !isNavbarCollapsed"
+    data-toggle="collapse" 
+    data-target="#navbarCollapse" 
+    aria-controls="navbarCollapse" 
+    [attr.aria-expanded]="!isNavbarCollapsed"
+    aria-expanded="false"  
+    aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <i class="fas fa-bars"></i>
+      </span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+    <div class="collapse navbar-collapse" id="navbarCollapse" [ngbCollapse]="isNavbarCollapsed">
       <ul class="navbar-nav ml-auto">
 
         <ng-template #anonymousUser>
