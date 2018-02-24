@@ -1,16 +1,25 @@
 <li class="list-group-item">
   <div *ngIf="!editing; else editForm">
-    <span (click)="toggleEdit()" style="color: blue">
+    <span (click)="changeStatus()">
+      <i class="far"
+      [ngClass]="{
+        'fa-square':!task.isDone,
+        'fa-check-square':task.isDone
+      }"></i>
+    </span>
+
+    <span [class.task-done]="task.isDone">
+      {{ task.title }}
+    </span>
+
+    <span (click)="toggleEdit()">
       <i class="fas fa-pencil-alt"></i>
     </span>
-    <span (click)="changeStatus()" style="color: green">
-      <i class="far fa-check-circle"></i>
-    </span>
-    <span (click)="remove.emit()" style="color: red">
+
+    <span (click)="remove.emit()">
       <i class="fas fa-trash-alt"></i>
     </span>
-    {{ task.title }}
-    <span *ngIf="task.isDone">|| Completed</span>
+
   </div>
   <ng-template #editForm>
     <form (ngSubmit)="saveTask()">
@@ -18,6 +27,7 @@
         [(ngModel)]="title"
         (blur)="stopEditing()"
         (keyup.escape)="stopEditing()" 
+        autofocus
         name="title" 
         type="text">
     </form>

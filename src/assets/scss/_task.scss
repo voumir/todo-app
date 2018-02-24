@@ -1,0 +1,43 @@
+.list-group-item {
+  @include border(0, transparent, 0);
+  @include border-gradient(left, $primary-color, $secondary-color);
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  position: relative;
+  height: 50px;
+
+  span {
+    cursor: pointer;
+
+    &:nth-of-type(1) {
+      @include list-item(absolute, auto, 0, auto, 20pt, $secondary-color);
+    }
+
+    &:nth-of-type(2) {
+      @include list-item(absolute, 20px, 30px, auto, auto, #fff);
+      cursor: text;
+    }
+
+    &:nth-of-type(3) {
+      @include list-item(absolute, auto, auto, 28px, auto, $primary-color);
+    }
+
+    &:nth-of-type(4) {
+      @include list-item(absolute, auto, auto, 0, auto, #ff4444);
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 20px; left: 30px;
+    color: $primary-color !important;
+    background: transparent;
+    border: 0;
+    outline: 0;
+  }
+
+  .task-done {
+    text-decoration: line-through;
+    text-decoration-color: $secondary-color;
+  }
+}

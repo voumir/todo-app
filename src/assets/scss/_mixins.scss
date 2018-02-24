@@ -43,3 +43,12 @@
   -moz-box-shadow: $horiz $vertic $blur $spread $color;
   box-shadow: $horiz $vertic $blur $spread $color;
 }
+
+@mixin list-item($pos, $top, $left, $right, $size, $color) {
+  position: $pos;
+  top: $top;
+  left: $left;
+  right: $right;
+  font-size: $size;
+  color: $color;
+}
