@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 import { Router } from '@angular/router';
-import { UserService } from './services/user.service';
+import { UserService } from './shared/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +13,17 @@ export class AppComponent {
     private auth: AuthService,
     router: Router) {
       auth.user$.subscribe(user => {
-        if (user) {
-          userService.save(user);
-          
-          let returnUrl = localStorage.getItem('returnUrl');
-          router.navigateByUrl(returnUrl);
-        }
+        // tslint:disable-next-line:curly
+        if (!user) return;
+
+        userService.save(user);
+        
+        const returnUrl = localStorage.getItem('returnUrl');
+        // tslint:disable-next-line:curly
+        if (!returnUrl) return;
+
+        localStorage.removeItem('returnUrl');
+        router.navigateByUrl(returnUrl);
       });
   }
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TasksService } from '../../services/tasks.service';
+import { TasksService } from '../../../shared/services/tasks.service';
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html'
+  selector: 'app-tasks',
+  templateUrl: './tasks.component.html'
 })
-export class BoardComponent implements OnInit {
+export class TasksComponent implements OnInit {
 
   title = '';
   tasks$;
