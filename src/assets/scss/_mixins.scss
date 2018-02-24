@@ -1,0 +1,45 @@
+@mixin text-gradient($direction, $color-one, $color-two) {
+  background: -webkit-linear-gradient($direction, $color-one, $color-two);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin box-gradient($direction, $color-one, $color-two) {
+  background: linear-gradient($direction, $color-one , $color-two);
+}
+
+@mixin border($size, $color, $radius) {
+  border: $size solid $color;
+  @include border-radius($radius);
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-gradient($direction, $firstColor, $secondColor) {
+  @if $direction == right {
+    -moz-border-image: -moz-linear-gradient(left, $firstColor 0%, $secondColor 100%);
+    -webkit-border-image: -webkit-linear-gradient(left, $firstColor 0%, $secondColor 100%);
+  } @else if $direction == left {
+    -moz-border-image: -moz-linear-gradient(right, $firstColor 0%, $secondColor 100%);
+    -webkit-border-image: -webkit-linear-gradient(right, $firstColor 0%, $secondColor 100%);
+  } @else if $direction == top {
+    -moz-border-image: -moz-linear-gradient(bottom, $firstColor 0%, $secondColor 100%);
+    -webkit-border-image: -webkit-linear-gradient(bottom, $firstColor 0%, $secondColor 100%);
+  } @else {
+    -moz-border-image: -moz-linear-gradient(top, $firstColor 0%, $secondColor 100%);
+    -webkit-border-image: -webkit-linear-gradient(top, $firstColor 0%, $secondColor 100%);
+  }
+	border-image: linear-gradient(to $direction, $firstColor 0%, $secondColor 100%);
+  border-image-slice: 1;
+}
+
+@mixin box-shadow($horiz, $vertic, $blur, $spread, $color) {
+  -webkit-box-shadow: $horiz $vertic $blur $spread $color;
+  -moz-box-shadow: $horiz $vertic $blur $spread $color;
+  box-shadow: $horiz $vertic $blur $spread $color;
+}

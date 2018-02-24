@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">Fixed navbar</a>
+    <a class="navbar-brand py-2" routerLink="/">
+      <h3>Tasks</h3>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,19 +11,21 @@
 
         <ng-template #anonymousUser>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login</a>
+            <a class="nav-link py-2" routerLink="/login">Login</a>
           </li>
         </ng-template>
 
         <li *ngIf="auth.user$ | async as user; else anonymousUser" ngbDropdown class="nav-item dropdown">
-          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle py-2" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ user.displayName || 'User'}}
           </a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" routerLink="/tasks">
+              <i class="fas fa-thumbtack"></i>
               My Tasks
             </a>
             <a class="dropdown-item" (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i>
               Log Out
             </a>
           </div>

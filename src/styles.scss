@@ -1,7 +1,17 @@
+// Third party imports
+@import url('https://use.fontawesome.com/releases/v5.0.6/css/all.css');
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+
+// Variables, Mixins
 @import './assets/scss/_variables.scss';
-@import './assets/scss/_main.scss';
+@import './assets/scss/_mixins.scss';
+
+// Core
+@import './assets/scss/_base.scss';
 @import './assets/scss/_navbar.scss';
+
+// Components
 @import './assets/scss/_home.scss';
 @import './assets/scss/_login.scss';
-@import './assets/scss/_board.scss';
+@import './assets/scss/_tasks.scss';
+@import './assets/scss/_task.scss';

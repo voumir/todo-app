@@ -1,8 +1,14 @@
 <li class="list-group-item">
   <div *ngIf="!editing; else editForm">
-    <span (click)="toggleEdit()" style="color: blue">Edit</span>
-    <span (click)="changeStatus()" style="color: green">V</span>
-    <span (click)="remove.emit()" style="color: red">X</span>
+    <span (click)="toggleEdit()" style="color: blue">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    <span (click)="changeStatus()" style="color: green">
+      <i class="far fa-check-circle"></i>
+    </span>
+    <span (click)="remove.emit()" style="color: red">
+      <i class="fas fa-trash-alt"></i>
+    </span>
     {{ task.title }}
     <span *ngIf="task.isDone">|| Completed</span>
   </div>

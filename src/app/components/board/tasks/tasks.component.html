@@ -1,11 +1,17 @@
 <form (ngSubmit)="saveTask()">
   <div class="form-group">
-    <input 
-      [(ngModel)]="title" 
-      name="title" 
-      (keyup.escape)="clear()"
-      class="form-control" 
-      required>
+    <fieldset>
+        <input 
+        [(ngModel)]="title" 
+        name="title" 
+        id="title"
+        (keyup.escape)="clear()"
+        autocomplete="off"
+        class="form-control" 
+        required>
+      
+      <label for="title">What you need to do?</label>
+    </fieldset>
   </div>
 </form>
 <hr>

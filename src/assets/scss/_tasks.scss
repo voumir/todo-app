@@ -1,0 +1,39 @@
+.form-group {
+  fieldset {
+    position: relative;
+
+    label {
+      position: absolute;
+      top: 24px; left: 8px;
+      color: rgba(#fff, 0.7);
+      transform: translate3d(0, 0, 0);
+      transition: all 0.2s ease-in-out;
+    }
+
+    input {
+      @include border(0, transparent, 0);
+      @include border-gradient(right, $primary-color, $secondary-color);
+      border-bottom: 6px solid transparent;
+      background: transparent;
+      color: #fff !important;
+      padding: 22px 8px 10px;
+  
+      &[data-empty="false"],
+      &:valid,
+      &:focus {
+        padding: 22px 8px 10px;
+        background: transparent;
+        @include box-shadow(0px, 28px, 60px, -15px, rgba($secondary-color, 0.5));
+      }
+  
+      &[data-empty="false"] + label,
+      &:valid + label,
+      &:focus + label {
+        @include text-gradient(45deg, $secondary-color, $primary-color);
+        font-weight: 700;
+        font-size: 12px;
+        transform: translate3d(0, -22px, 0);
+      }
+    }
+  }
+}
