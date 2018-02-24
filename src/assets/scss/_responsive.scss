@@ -1,6 +1,11 @@
 @media only screen and (max-width: 500px) {
   .btn {
-    width: 95vw;
     font-size: 1.3rem;
+  }
+  .home-text {
+    display: none;
+  }
+  .home-btn {
+    margin-top: 12px;
   }
 }

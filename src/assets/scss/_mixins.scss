@@ -44,6 +44,10 @@
   box-shadow: $horiz $vertic $blur $spread $color;
 }
 
+@mixin text-shadow($angle, $dist, $blur, $color) {
+  text-shadow: $angle $dist $blur $color;
+}
+
 @mixin list-item($pos, $top, $left, $right, $size, $color) {
   position: $pos;
   top: $top;

@@ -2,6 +2,11 @@ a {
   cursor: pointer;
   color: #fff !important;
 }
+
+.bg-dark { background-color: $navbar-color !important; }
+
+.home-end { background: rgba($primary-color, 0.1) !important; }
+
 .navbar-toggler {
   padding: 0;
   .navbar-toggler-icon {
@@ -10,21 +15,24 @@ a {
   }
 }
 
-.bg-dark {
-  background-color: $navbar-color !important; 
-}
 .navbar-brand {
   h3 {
     @include text-gradient(45deg, $primary-color, $secondary-color);
     font-size: $brand-size;
     text-transform: lowercase;
     font-weight: 700;
+    transition: .4s;
+
+    &:hover {
+      @include text-shadow(0, 12px, 28px, $primary-color);
+    }
   }
 }
 
 .dropdown-menu {
-  background: rgba(#000, 0.5);
   @include box-shadow(0, 0, 35px, 0, rgba($primary-color, 0.75));
+  background: rgba(#000, 0.5);
+
   a {
     &:hover {
       @include box-gradient(45deg, $primary-color, $secondary-color);

@@ -1,0 +1,4 @@
+.home-task-text {
+  @include text-gradient(45deg, $primary-color, $secondary-color);
+  @include text-shadow(0, 0, 30px, $primary-color);
+}

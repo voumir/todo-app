@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-md fixed-top bg-dark">
+<nav 
+  class="navbar navbar-expand-md fixed-top bg-dark" 
+  [class.home-end]="current === '/'">
   <div class="container">
     <a class="navbar-brand py-2" routerLink="/">
       <h3>Tasks</h3>

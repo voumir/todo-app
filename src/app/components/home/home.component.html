@@ -1,3 +1,24 @@
-<p>
-  home works!
-</p>
+<particles 
+  [params]="myParams" 
+  [style]="myStyle" 
+  [width]="width" 
+  [height]="height"></particles>
+
+<div class="row justify-content-md-center py-5">
+  <div class="col col-md-8 text-center py-5">
+    <h1 class="display-1">
+      <span class="home-task-text">Tasks</span>
+      <span class="home-text">App</span>
+    </h1>
+
+    <p class="lead home-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Vestibulum et lectus vitae tellus pretium cursus vel vel dolor. 
+      Integer ut nulla ut orci molestie porttitor at tempor leo.
+    </p>
+
+    <button routerLink="/tasks" class="btn btn-outline-success home-btn">
+      Check Tasks
+    </button>
+  </div>
+</div>

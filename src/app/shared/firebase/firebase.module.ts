@@ -16,8 +16,6 @@ export const firebaseConfig = {
   imports: [
     AngularFireModule.initializeApp(firebaseConfig)
   ],
-  exports: [
-  ],
   providers: [
     AngularFireDatabase,
     AngularFireAuth

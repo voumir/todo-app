@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { ParticlesModule } from 'angular-particle';
 
 import { SharedModule } from '../shared/shared.module';
 import { RoutingModule } from '../app.routing';
@@ -11,7 +12,8 @@ import { NavbarComponent } from './navbar/navbar.component';
   imports: [
     SharedModule,
     BoardModule,
-    RoutingModule
+    RoutingModule,
+    ParticlesModule
   ],
   declarations: [
     LoginComponent,
