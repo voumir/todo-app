@@ -2,3 +2,22 @@
   @include text-gradient(45deg, $primary-color, $secondary-color);
   @include text-shadow(0, 0, 30px, $primary-color);
 }
+
+footer {
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%;
+  text-align: center;
+  color: $secondary-color;
+
+  a {
+    @include text-shadow(0, 0, 12px, $secondary-color);
+    color: $secondary-color !important;
+    transition: .3s;
+
+    &:hover {
+      @include text-shadow(0, 0, 4px, $secondary-color);
+      text-decoration: none;
+    }
+  }
+}
