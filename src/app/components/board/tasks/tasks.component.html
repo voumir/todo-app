@@ -1,5 +1,5 @@
 <form (ngSubmit)="saveTask()">
-  <div class="form-group">
+  <div class="form-group" @inputEntrance>
     <fieldset>
         <input 
         [(ngModel)]="title" 
@@ -16,7 +16,7 @@
 </form>
 <hr>
 <ul class="list-group">
-  <app-task-item
+  <app-task-item @taskAnimation
     *ngFor="let task of tasks$ | async"
     [task]="task"
     (update)="taskService.update(task, $event)"

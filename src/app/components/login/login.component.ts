@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { buttonsEntrance } from '../../shared/animations/animations';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  animations: [buttonsEntrance]
 })
 export class LoginComponent {
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { particlesEntrance, contentEntrance } from '../../shared/animations/animations';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  animations: [particlesEntrance, contentEntrance]
 })
 export class HomeComponent implements OnInit {
   myStyle: object = {};

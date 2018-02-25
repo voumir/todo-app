@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../../shared/services/tasks.service';
+import { inputEntrance, taskAnimation } from '../../../shared/animations/animations';
 
 @Component({
   selector: 'app-tasks',
-  templateUrl: './tasks.component.html'
+  templateUrl: './tasks.component.html',
+  animations: [inputEntrance, taskAnimation]
 })
 export class TasksComponent implements OnInit {
 

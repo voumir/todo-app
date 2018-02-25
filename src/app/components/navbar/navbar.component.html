@@ -34,7 +34,8 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle py-2" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ user.displayName || 'User'}}
           </a>
-          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+
+          <div @notifToggle ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" routerLink="/tasks">
               <i class="fas fa-thumbtack"></i>
               My Tasks
@@ -44,6 +45,7 @@
               Log Out
             </a>
           </div>
+          
         </li>
 
       </ul>
