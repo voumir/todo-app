@@ -1,9 +1,10 @@
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
-import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
@@ -17,27 +18,27 @@ export class AuthService {
       this.uid$ = afAuth.authState.map(user => user.uid);
   }
 
-  getURL() {
+  getURL(): void {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
   }
 
-  loginWithGoogle() {
+  loginWithGoogle(): void {
     this.getURL();
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-  loginWithFacebook() {
+  loginWithFacebook(): void {
     this.getURL();
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
 
-  loginWithGithub() {
+  loginWithGithub(): void {
     this.getURL();
     this.afAuth.auth.signInWithPopup(new firebase.auth.GithubAuthProvider());
   }
 
-  logout() {
+  logout(): void {
     this.afAuth.auth.signOut();
   }
 }

@@ -19,15 +19,15 @@ export class TaskItemComponent implements OnInit {
     this.title = this.task.title;
   }
 
-  toggleEdit() {
+  toggleEdit(): void {
     this.editing = !this.editing;
   }
 
-  stopEditing() {
+  stopEditing(): void {
     this.editing = false;
   }
 
-  saveTask() {
+  saveTask(): void {
     if (this.editing) {
       this.update.emit({
         title: this.title.trim()
@@ -37,7 +37,7 @@ export class TaskItemComponent implements OnInit {
     }
   }
 
-  changeStatus() {
+  changeStatus(): void {
     this.update.emit({
       isDone: !this.task.isDone
     });

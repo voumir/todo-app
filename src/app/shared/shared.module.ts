@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FirebaseModule } from './firebase/firebase.module';
 
-import { AuthService } from './services/auth.service';
+import { FirebaseModule } from './firebase/firebase.module';
 import { AuthGuard } from './services/auth-guard.service';
-import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 import { TasksService } from './services/tasks.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   imports: [

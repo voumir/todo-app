@@ -22,7 +22,7 @@ export class TasksComponent implements OnInit {
     this.title = '';
   }
 
-  saveTask() {
+  saveTask(): void {
     const title: string = this.title.trim();
 
     if (title.length) {

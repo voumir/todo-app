@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { particlesEntrance, contentEntrance } from '../../shared/animations/animations';
+import { contentEntrance, particlesEntrance } from '../../shared/animations/animations';
 
 @Component({
   selector: 'app-home',
