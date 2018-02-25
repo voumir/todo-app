@@ -1,8 +1,20 @@
 # TodoAuthentication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
-
-## Development server
+## How to
+First, You have to create new project at Firebase [Console](https://console.firebase.google.com/) and get your configuration variables.
+Just click `Add Firebase to your web app` button and it should open a window with that data.
+Then paste that data into [environment.ts](https://github.com/mazxaxz/todo-with-authentication/blob/master/src/environments/environment.ts) and [envoronment.prod.ts](https://github.com/mazxaxz/todo-with-authentication/blob/master/src/environments/environment.prod.ts) on lines `9 -> 14` and `4 -> 9`.
+```javascript
+firebase: {
+  apiKey: '<API_KEY>',
+  authDomain: '<PROJECT_ID>.firebaseapp.com',
+  databaseURL: 'https://<DATABASE_NAME>.firebaseio.com',
+  projectId: '<PROJECT_ID>',
+  storageBucket: '<BUCKET>.appspot.com',
+  messagingSenderId: '<SENDER_ID>'
+}
+```
+Then run `npm install` to install required packages.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
