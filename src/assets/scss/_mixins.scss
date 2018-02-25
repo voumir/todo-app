@@ -56,3 +56,10 @@
   font-size: $size;
   color: $color;
 }
+
+@mixin animations($animation, $duration, $type, $repeat) {
+  -webkit-animation: $animation $duration $type $repeat;
+  -moz-animation: $animation $duration $type $repeat;
+  -o-animation: $animation $duration $type $repeat;
+  animation: $animation $duration $type $repeat;
+}

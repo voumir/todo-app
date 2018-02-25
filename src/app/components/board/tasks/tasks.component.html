@@ -15,10 +15,14 @@
   </div>
 </form>
 <hr>
-<ul class="list-group">
+<ul *ngIf="tasks$; else loading" class="list-group">
   <app-task-item @taskAnimation
     *ngFor="let task of tasks$ | async"
     [task]="task"
     (update)="taskService.update(task, $event)"
     (remove)="taskService.remove(task)"></app-task-item>
 </ul>
+
+<ng-template #loading>
+  <div class="loading"></div>
+</ng-template>
