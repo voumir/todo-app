@@ -65,6 +65,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   }
 }
 ```
+## Packages used
+* [ng-bootstrap](https://ng-bootstrap.github.io/#/home)
+* [angular-particle](https://www.npmjs.com/package/angular-particle)
+* [angularfire2](https://www.npmjs.com/package/angularfire2)
+* [firebase](https://www.npmjs.com/package/firebase)
 
 ## Preview
 ![home](https://user-images.githubusercontent.com/32012952/36644840-4f20a9c8-1a60-11e8-9772-dc691859df3b.png)
