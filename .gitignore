@@ -1,13 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/dist-server
-/tmp
-/out-tsc
+/TodoApp/dist
+/TodoApp/dist-server
+/TodoApp/tmp
+/TodoApp/out-tsc
 
 # dependencies
-/node_modules
+/TodoApp/node_modules
 
 # IDEs and editors
 /.idea
@@ -35,8 +35,8 @@ testem.log
 /typings
 
 # e2e
-/e2e/*.js
-/e2e/*.map
+/TodoApp/e2e/*.js
+/TodoApp/e2e/*.map
 
 # System Files
 .DS_Store
