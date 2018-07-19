@@ -41,3 +41,84 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/.vs/
+
+###################
+# compiled source #
+###################
+/TodoApp.WebAPI/*.com
+/TodoApp.WebAPI/*.class
+/TodoApp.WebAPI/*.dll
+/TodoApp.WebAPI/*.exe
+/TodoApp.WebAPI/*.pdb
+/TodoApp.WebAPI/*.dll.config
+/TodoApp.WebAPI/*.cache
+/TodoApp.WebAPI/*.suo
+
+# Include dlls if they’re in the NuGet packages directory
+!/packages/*/lib/*.dll
+!/packages/*/lib/*/*.dll
+
+# Include dlls if they're in the CommonReferences directory
+!*CommonReferences/*.dll
+####################
+# VS Upgrade stuff #
+####################
+UpgradeLog.XML
+_UpgradeReport_Files/
+###############
+# Directories #
+###############
+/TodoApp.WebAPI/bin/
+/TodoApp.WebAPI/obj/
+/TodoApp.WebAPI/TestResults/
+###################
+# Web publish log #
+###################
+/TodoApp.WebAPI/*.Publish.xml
+#############
+# Resharper #
+#############
+/TodoApp.WebAPI/_ReSharper.*
+/TodoApp.WebAPI/*.ReSharper.*
+############
+# Packages #
+############
+# it’s better to unpack these files and commit the raw source
+# git has its own built in compression methods
+/packages/
+/TodoApp.WebAPI/*.7z
+/TodoApp.WebAPI/*.dmg
+/TodoApp.WebAPI/*.gz
+/TodoApp.WebAPI/*.iso
+/TodoApp.WebAPI/*.jar
+/TodoApp.WebAPI/*.rar
+/TodoApp.WebAPI/*.tar
+/TodoApp.WebAPI/*.zip
+######################
+# Logs and databases #
+######################
+/TodoApp.WebAPI/*.log
+/TodoApp.WebAPI/*.sqlite
+# OS generated files #
+######################
+/TodoApp.WebAPI/.DS_Store?
+/TodoApp.WebAPI/ehthumbs.db
+/TodoApp.WebAPI/Icon?
+/TodoApp.WebAPI/Thumbs.db
+/TodoApp.WebAPI/[Bb]in
+/TodoApp.WebAPI/[Oo]bj
+/TodoApp.WebAPI/[Tt]est[Rr]esults
+/TodoApp.WebAPI/*.suo
+/TodoApp.WebAPI/*.user
+/TodoApp.WebAPI/*.[Cc]ache
+/TodoApp.WebAPI/*[Rr]esharper*
+/TodoApp.WebAPI/packages
+/TodoApp.WebAPI/NuGet.exe
+/TodoApp.WebAPI/_[Ss]cripts
+/TodoApp.WebAPI/*.exe
+/TodoApp.WebAPI/*.dll
+/TodoApp.WebAPI/*.nupkg
+/TodoApp.WebAPI/*.ncrunchsolution
+/TodoApp.WebAPI/*.dot[Cc]over
