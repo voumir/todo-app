@@ -101,6 +101,7 @@ _UpgradeReport_Files/
 ######################
 /TodoApp.WebAPI/*.log
 /TodoApp.WebAPI/*.sqlite
+/TodoApp.WebAPI/App_Data/
 # OS generated files #
 ######################
 /TodoApp.WebAPI/.DS_Store?
@@ -122,3 +123,8 @@ _UpgradeReport_Files/
 /TodoApp.WebAPI/*.nupkg
 /TodoApp.WebAPI/*.ncrunchsolution
 /TodoApp.WebAPI/*.dot[Cc]over
+
+########
+## Tests ##
+/TodoApp.WebAPI.Tests/bin/
+/TodoApp.WebAPI.Tests/obj/
