@@ -3,7 +3,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
-using TodoApp.WebAPI.Models;
+using TodoApp.WebAPI.Core.Models;
+using TodoApp.WebAPI.Persistence;
 
 namespace TodoApp.WebAPI
 {

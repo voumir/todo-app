@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using TodoApp.WebAPI.Core.Models;
 
-namespace TodoApp.WebAPI.Models
+namespace TodoApp.WebAPI.Persistence
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

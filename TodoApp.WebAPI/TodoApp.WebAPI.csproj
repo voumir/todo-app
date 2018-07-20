@@ -237,24 +237,24 @@
     <Compile Include="Controllers\AssignmentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Dtos\AssignmentDto.cs" />
+    <Compile Include="Core\Dtos\AssignmentDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807191005267_CreateAssignmentTable.cs" />
-    <Compile Include="Migrations\201807191005267_CreateAssignmentTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\201807191005267_CreateAssignmentTable.cs" />
+    <Compile Include="Persistence\Migrations\201807191005267_CreateAssignmentTable.Designer.cs">
       <DependentUpon>201807191005267_CreateAssignmentTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807191009301_CreateAssignmentTable1.cs" />
-    <Compile Include="Migrations\201807191009301_CreateAssignmentTable1.Designer.cs">
+    <Compile Include="Persistence\Migrations\201807191009301_CreateAssignmentTable1.cs" />
+    <Compile Include="Persistence\Migrations\201807191009301_CreateAssignmentTable1.Designer.cs">
       <DependentUpon>201807191009301_CreateAssignmentTable1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountBindingModels.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\Assignment.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Core\Models\AccountBindingModels.cs" />
+    <Compile Include="Core\Models\AccountViewModels.cs" />
+    <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\Assignment.cs" />
+    <Compile Include="Core\Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -338,10 +338,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807191005267_CreateAssignmentTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201807191005267_CreateAssignmentTable.resx">
       <DependentUpon>201807191005267_CreateAssignmentTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807191009301_CreateAssignmentTable1.resx">
+    <EmbeddedResource Include="Persistence\Migrations\201807191009301_CreateAssignmentTable1.resx">
       <DependentUpon>201807191009301_CreateAssignmentTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace TodoApp.WebAPI.Dtos
+﻿namespace TodoApp.WebAPI.Core.Dtos
 {
     public class AssignmentDto
     {

@@ -1,8 +1,7 @@
-namespace TodoApp.WebAPI.Migrations
+using System.Data.Entity.Migrations;
+
+namespace TodoApp.WebAPI.Persistence.Migrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class CreateAssignmentTable1 : DbMigration
     {
         public override void Up()

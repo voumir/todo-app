@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TodoApp.WebAPI.Models
+namespace TodoApp.WebAPI.Core.Models
 {
     public class Assignment
     {

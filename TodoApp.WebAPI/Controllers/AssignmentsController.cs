@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using TodoApp.WebAPI.Dtos;
-using TodoApp.WebAPI.Models;
+using TodoApp.WebAPI.Core.Dtos;
+using TodoApp.WebAPI.Core.Models;
+using TodoApp.WebAPI.Persistence;
 
 namespace TodoApp.WebAPI.Controllers
 {

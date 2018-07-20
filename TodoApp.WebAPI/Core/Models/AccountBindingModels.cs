@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace TodoApp.WebAPI.Models
+namespace TodoApp.WebAPI.Core.Models
 {
     // Models used as parameters to AccountController actions.
 

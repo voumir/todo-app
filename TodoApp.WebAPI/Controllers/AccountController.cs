@@ -13,7 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using TodoApp.WebAPI.Models;
+using TodoApp.WebAPI.Core.Models;
 using TodoApp.WebAPI.Providers;
 using TodoApp.WebAPI.Results;
 

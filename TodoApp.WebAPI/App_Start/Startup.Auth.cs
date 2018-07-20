@@ -8,8 +8,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
+using TodoApp.WebAPI.Core.Models;
+using TodoApp.WebAPI.Persistence;
 using TodoApp.WebAPI.Providers;
-using TodoApp.WebAPI.Models;
 
 namespace TodoApp.WebAPI
 {
