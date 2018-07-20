@@ -1,10 +1,10 @@
-﻿using System.Data.Entity;
-using Microsoft.AspNet.Identity.EntityFramework;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using TodoApp.WebAPI.Core.Models;
 
 namespace TodoApp.WebAPI.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public DbSet<Assignment> Assignments { get; set; }
 

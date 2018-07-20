@@ -1,31 +1,29 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
+using TodoApp.WebAPI.Core;
 using TodoApp.WebAPI.Core.Dtos;
 using TodoApp.WebAPI.Core.Models;
-using TodoApp.WebAPI.Persistence;
 
 namespace TodoApp.WebAPI.Controllers
 {
     [Authorize]
     public class AssignmentsController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public AssignmentsController()
+        public AssignmentsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
         public IEnumerable<Assignment> Get()
         {
             // TODO: Implement Get assignments
-        
-            var assignments = _context.Assignments
-                .ToList();
+
+            var assignments = _unitOfWork.Assignments.GetAssignments();
 
             return assignments;
         }
@@ -49,8 +47,8 @@ namespace TodoApp.WebAPI.Controllers
                 IsCompleted = false
             };
 
-            _context.Assignments.Add(assignment);
-            _context.SaveChanges();
+            _unitOfWork.Assignments.Add(assignment);
+            _unitOfWork.Complete();
 
             return Ok();
         }
