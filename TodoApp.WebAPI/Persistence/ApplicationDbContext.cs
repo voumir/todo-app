@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using TodoApp.WebAPI.Core.Models;
+using TodoApp.WebAPI.Persistence.EntityConfigurations;
 
 namespace TodoApp.WebAPI.Persistence
 {
@@ -16,6 +17,13 @@ namespace TodoApp.WebAPI.Persistence
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new AssignmentConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

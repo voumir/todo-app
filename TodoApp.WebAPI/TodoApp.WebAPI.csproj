@@ -274,6 +274,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\EntityConfigurations\AssignmentConfiguration.cs" />
     <Compile Include="Persistence\IApplicationDbContext.cs" />
     <Compile Include="Persistence\Migrations\201807191005267_CreateAssignmentTable.cs" />
     <Compile Include="Persistence\Migrations\201807191005267_CreateAssignmentTable.Designer.cs">
