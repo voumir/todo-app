@@ -269,6 +269,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\Dtos\AssignmentDto.cs" />
+    <Compile Include="Core\Dtos\AssignmentUpdateDto.cs" />
     <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Core\Repositories\IAssignmentsRepository.cs" />
     <Compile Include="Global.asax.cs">

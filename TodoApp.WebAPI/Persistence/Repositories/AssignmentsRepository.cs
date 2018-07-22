@@ -21,6 +21,12 @@ namespace TodoApp.WebAPI.Persistence.Repositories
                 .ToList();
         }
 
+        public Assignment GetAssignment(int id)
+        {
+            return _context.Assignments
+                .SingleOrDefault(a => a.Id == id);
+        }
+
         public void Add(Assignment assignment)
         {
             _context.Assignments.Add(assignment);

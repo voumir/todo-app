@@ -59,5 +59,23 @@ namespace TodoApp.WebAPI.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        public IHttpActionResult Update([FromBody]AssignmentUpdateDto dto)
+        {
+            var assignment = _unitOfWork.Assignments.GetAssignment(dto.Id);
+
+            if (assignment == null)
+                return NotFound();
+
+            if (assignment.UserId != User.Identity.GetUserId())
+                return Unauthorized();
+
+            assignment.Update(dto);
+
+            _unitOfWork.Complete();
+
+            return Ok();
+        }
     }
 }
