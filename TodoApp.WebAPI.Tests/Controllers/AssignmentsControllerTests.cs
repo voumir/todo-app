@@ -70,9 +70,9 @@ namespace TodoApp.WebAPI.Tests.Controllers
         [TestMethod]
         public void Update_AssignmentDoesNotExists_ShouldReturnNotFound()
         {
-            var dto = new AssignmentUpdateDto {Content = "-", Id = 1};
+            var dto = new AssignmentUpdateDto {Content = "-"};
 
-            var result = _assignmentsController.Update(dto);
+            var result = _assignmentsController.Update(1, dto);
 
             result.Should().BeOfType<NotFoundResult>();
         }
@@ -85,7 +85,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
             _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
 
             var result = _assignmentsController
-                .Update(new AssignmentUpdateDto {Id = 1, Content = "-"});
+                .Update(1, new AssignmentUpdateDto {Content = "-"});
 
             result.Should().BeOfType<UnauthorizedResult>();
         }
@@ -98,7 +98,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
             _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
 
             var result = _assignmentsController
-                .Update(new AssignmentUpdateDto { Id = 1, Content = "--" });
+                .Update(1, new AssignmentUpdateDto { Content = "--" });
 
             result.Should().BeOfType<OkResult>();
         }

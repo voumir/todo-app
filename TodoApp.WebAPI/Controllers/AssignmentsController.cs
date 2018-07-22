@@ -61,9 +61,10 @@ namespace TodoApp.WebAPI.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult Update([FromBody]AssignmentUpdateDto dto)
+        [Route("api/assignments/{id}")]
+        public IHttpActionResult Update(int id, [FromBody]AssignmentUpdateDto dto)
         {
-            var assignment = _unitOfWork.Assignments.GetAssignment(dto.Id);
+            var assignment = _unitOfWork.Assignments.GetAssignment(id);
 
             if (assignment == null)
                 return NotFound();
