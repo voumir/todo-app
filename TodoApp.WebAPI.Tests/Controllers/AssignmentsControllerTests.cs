@@ -5,6 +5,7 @@ using System.Web.Http.Results;
 using TodoApp.WebAPI.Controllers;
 using TodoApp.WebAPI.Core;
 using TodoApp.WebAPI.Core.Dtos;
+using TodoApp.WebAPI.Core.Models;
 using TodoApp.WebAPI.Core.Repositories;
 using TodoApp.WebAPI.Tests.Extensions;
 
@@ -62,6 +63,42 @@ namespace TodoApp.WebAPI.Tests.Controllers
             var assignment = new AssignmentDto {Content = "-"};
 
             var result = _assignmentsController.Post(assignment);
+
+            result.Should().BeOfType<OkResult>();
+        }
+
+        [TestMethod]
+        public void Update_AssignmentDoesNotExists_ShouldReturnNotFound()
+        {
+            var dto = new AssignmentUpdateDto {Content = "-", Id = 1};
+
+            var result = _assignmentsController.Update(dto);
+
+            result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [TestMethod]
+        public void Update_UserUpdatesAnothersUserAssignment_ShouldReturnUnauthorized()
+        {
+            var assignment = new Assignment {Id = 1, Content = "-", UserId = _userId + "-"};
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController
+                .Update(new AssignmentUpdateDto {Id = 1, Content = "-"});
+
+            result.Should().BeOfType<UnauthorizedResult>();
+        }
+
+        [TestMethod]
+        public void Update_ValidRequest_ShouldReturnOk()
+        {
+            var assignment = new Assignment { Id = 1, Content = "-", UserId = _userId };
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController
+                .Update(new AssignmentUpdateDto { Id = 1, Content = "--" });
 
             result.Should().BeOfType<OkResult>();
         }
