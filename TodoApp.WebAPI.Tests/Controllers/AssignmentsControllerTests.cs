@@ -29,7 +29,15 @@ namespace TodoApp.WebAPI.Tests.Controllers
             _userId = "1";
             _assignmentsController.MockCurrentUser(_userId, "user1@domain.com");
         }
-        
+
+        [TestMethod]
+        public void Get_UserHaveNoAssignments_ShouldReturnEmptyIEnumerable()
+        {
+            var result = _assignmentsController.Get();
+
+            result.Should().BeEmpty();
+        }
+
         [TestMethod]
         public void Post_NoArgumentsProvided_ShouldReturnBadRequest()
         {
