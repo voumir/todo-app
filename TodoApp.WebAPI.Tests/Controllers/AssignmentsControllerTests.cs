@@ -1,7 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Web.Http.Results;
 using TodoApp.WebAPI.Controllers;
 using TodoApp.WebAPI.Core;
+using TodoApp.WebAPI.Core.Dtos;
 using TodoApp.WebAPI.Core.Repositories;
 using TodoApp.WebAPI.Tests.Extensions;
 
@@ -26,10 +29,33 @@ namespace TodoApp.WebAPI.Tests.Controllers
             _userId = "1";
             _assignmentsController.MockCurrentUser(_userId, "user1@domain.com");
         }
+        
+        [TestMethod]
+        public void Post_NoArgumentsProvided_ShouldReturnBadRequest()
+        {
+            var result = _assignmentsController.Post(null);
+
+            result.Should().BeOfType<BadRequestErrorMessageResult>();
+        }
 
         [TestMethod]
-        public void TestMethod1()
+        public void Post_NoContentProvided_ShouldReturnBadRequest()
         {
+            var assignment = new AssignmentDto();
+
+            var result = _assignmentsController.Post(assignment);
+
+            result.Should().BeOfType<BadRequestErrorMessageResult>();
+        }
+
+        [TestMethod]
+        public void Post_ValidRequest_ShouldReturnOk()
+        {
+            var assignment = new AssignmentDto {Content = "-"};
+
+            var result = _assignmentsController.Post(assignment);
+
+            result.Should().BeOfType<OkResult>();
         }
     }
 }

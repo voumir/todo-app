@@ -37,6 +37,9 @@ namespace TodoApp.WebAPI.Controllers
                 return Unauthorized();
 
             if (dto == null)
+                return BadRequest("Post action with no arguments");
+
+            if (dto.Content == null)
                 return BadRequest("Argument cannot be null");
 
             var assignment = new Assignment
