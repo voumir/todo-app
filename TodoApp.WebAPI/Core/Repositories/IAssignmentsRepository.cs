@@ -5,7 +5,7 @@ namespace TodoApp.WebAPI.Core.Repositories
 {
     public interface IAssignmentsRepository
     {
-        IEnumerable<Assignment> GetAssignments();
+        IEnumerable<Assignment> GetUsersAssignments(string userId);
         void Add(Assignment assignment);
     }
 }

@@ -21,9 +21,13 @@ namespace TodoApp.WebAPI.Controllers
         [HttpGet]
         public IEnumerable<Assignment> Get()
         {
-            // TODO: Implement Get assignments
+            var userId = User.Identity.GetUserId();
 
-            var assignments = _unitOfWork.Assignments.GetAssignments();
+            if (userId == null)
+                return new List<Assignment>();
+
+            var assignments = _unitOfWork.Assignments
+                .GetUsersAssignments(userId);
 
             return assignments;
         }

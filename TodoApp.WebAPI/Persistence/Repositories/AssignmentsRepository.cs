@@ -14,9 +14,11 @@ namespace TodoApp.WebAPI.Persistence.Repositories
             _context = context;
         }
 
-        public IEnumerable<Assignment> GetAssignments()
+        public IEnumerable<Assignment> GetUsersAssignments(string userId)
         {
-            return _context.Assignments.ToList();
+            return _context.Assignments
+                .Where(a => a.UserId == userId)
+                .ToList();
         }
 
         public void Add(Assignment assignment)
