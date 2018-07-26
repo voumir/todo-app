@@ -124,6 +124,11 @@ _UpgradeReport_Files/
 /TodoApp.WebAPI/*.ncrunchsolution
 /TodoApp.WebAPI/*.dot[Cc]over
 
+##########
+# Hosting ###
+##########
+/TodoApp.WebAPI/Properties/PublishProfiles/
+
 ########
 ## Tests ##
 /TodoApp.WebAPI.Tests/bin/

@@ -373,6 +373,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\TodoAppWebAPI20180726022310 - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Persistence\Migrations\201807191005267_CreateAssignmentTable.resx">
