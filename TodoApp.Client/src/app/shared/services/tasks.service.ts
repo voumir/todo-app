@@ -1,35 +1,21 @@
 import 'rxjs/add/operator/take';
 
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 import { Task } from '../models/task';
 import { AuthService } from './auth.service';
-// TODO: Update
+
 @Injectable()
 export class TasksService {
+  tasks$;
 
-  tasks$: FirebaseListObservable<Task[]>;
-
-  constructor(private db: AngularFireDatabase, private auth: AuthService) {
-    auth.uid$
-      .take(1)
-      .subscribe(uid => {
-        const path = `/tasks/${uid}`;
-
-        this.tasks$ = db.list(path);
-      });
+  constructor(private auth: AuthService) {
+    // TODO: Implement Get tasks
   }
 
-  create(task: Task) {
-    return this.tasks$.push(task);
-  }
+  create(task: Task) {}
 
-  remove(task: Task) {
-    return this.tasks$.remove(task.$key);
-  }
+  remove(task: Task) {}
 
-  update(task: Task, change: any) {
-    return this.tasks$.update(task.$key, change);
-  }
+  update(task: Task, change: any) {}
 }

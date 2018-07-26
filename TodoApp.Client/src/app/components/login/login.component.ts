@@ -12,15 +12,5 @@ export class LoginComponent {
 
   constructor(private auth: AuthService) { }
 
-  loginWithGoogle(): void {
-    this.auth.loginWithGoogle();
-  }
-
-  loginWithFacebook(): void {
-    this.auth.loginWithFacebook();
-  }
-
-  loginWithGithub(): void {
-    this.auth.loginWithGithub();
-  }
+  // TODO: Login
 }

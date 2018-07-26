@@ -1,13 +1,3 @@
-// TODO: Get rid of firebase things
-
 export const environment = {
-  production: true,
-  firebase: {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: ''
-  }
+  production: true
 };
