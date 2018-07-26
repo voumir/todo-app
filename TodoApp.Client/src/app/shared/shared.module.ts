@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+// TODO: Get rid of firebase
 import { FirebaseModule } from './firebase/firebase.module';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';

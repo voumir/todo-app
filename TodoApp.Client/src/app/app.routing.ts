@@ -5,7 +5,7 @@ import { TasksComponent } from './components/board/tasks/tasks.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './shared/services/auth-guard.service';
-
+// TODO: Register route "register"
 const appRoutes: Routes = [
   { path: '',      component: HomeComponent },
   { path: 'login', component: LoginComponent },

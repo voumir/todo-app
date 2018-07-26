@@ -4,3 +4,6 @@ export interface Task {
   created: number;
   title: string;
 }
+
+// TODO: Update interface
+// TODO: Interface everything

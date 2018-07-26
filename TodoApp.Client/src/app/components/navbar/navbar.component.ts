@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../shared/services/auth.service';
-
+// TODO: Update
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html'
