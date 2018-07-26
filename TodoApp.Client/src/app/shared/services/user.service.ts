@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { RegisterUserParams } from '../models/RegisterUserParams';
 
@@ -7,7 +7,7 @@ import { RegisterUserParams } from '../models/RegisterUserParams';
 export class UserService {
   url = 'https://todoappwebapi20180726022310.azurewebsites.net';
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
 
   register(params: RegisterUserParams) {
     return this._http

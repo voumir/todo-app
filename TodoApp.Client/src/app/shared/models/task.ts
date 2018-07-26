@@ -1,9 +1,7 @@
 export interface Task {
-  $key?: string;
-  isDone: boolean;
-  created: number;
-  title: string;
+  $id: number;
+  $userId: string;
+  content: string;
+  isCompleted: boolean;
+  createdOn: string;
 }
-
-// TODO: Update interface
-// TODO: Interface everything

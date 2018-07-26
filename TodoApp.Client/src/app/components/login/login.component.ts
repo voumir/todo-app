@@ -12,5 +12,7 @@ export class LoginComponent {
 
   constructor(private auth: AuthService) { }
 
-  // TODO: Login
+  login() {
+    this.auth.login({ username: 'mazxaxz@gmail.com', password: 'Qwerty123+' });
+  }
 }

@@ -3,13 +3,13 @@
     <span (click)="changeStatus()">
       <i class="far"
       [ngClass]="{
-        'fa-square':!task.isDone,
-        'fa-check-square':task.isDone
+        'fa-square':!task.isCompleted,
+        'fa-check-square':task.isCompleted
       }"></i>
     </span>
 
-    <span [class.task-done]="task.isDone">
-      {{ task.title }}
+    <span [class.task-done]="task.isCompleted">
+      {{ task.content }}
     </span>
 
     <span (click)="toggleEdit()">
@@ -24,12 +24,12 @@
   <ng-template #editForm>
     <form (ngSubmit)="saveTask()">
       <input 
-        [(ngModel)]="title"
+        [(ngModel)]="content"
         (blur)="stopEditing()"
         (keyup.escape)="stopEditing()" 
         autofocus
         autocomplete="off"
-        name="title" 
+        name="content" 
         type="text">
     </form>
   </ng-template>

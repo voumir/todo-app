@@ -8,30 +8,23 @@ import { inputEntrance, taskAnimation } from '../../../shared/animations/animati
   animations: [inputEntrance, taskAnimation]
 })
 export class TasksComponent implements OnInit {
-
-  title = '';
-  tasks$;
+  content = '';
 
   constructor(public taskService: TasksService) { }
 
   ngOnInit() {
-    this.tasks$ = this.taskService.tasks$;
+    // TODO: GET tasks
   }
 
   clear(): void {
-    this.title = '';
+    this.content = '';
   }
 
   saveTask(): void {
-    const title: string = this.title.trim();
+    const content: string = this.content.trim();
 
-    if (title.length) {
-      const newTask = {
-        isDone: false,
-        created: Date.now(),
-        title: title
-      };
-      this.taskService.create(newTask);
+    if (content.length) {
+      this.taskService.create({ content });
     }
 
     this.clear();

@@ -2,7 +2,7 @@ import 'rxjs/add/operator/take';
 
 import { Injectable } from '@angular/core';
 
-import { Task } from '../models/task';
+import { Task } from '../models/Task';
 import { AuthService } from './auth.service';
 
 @Injectable()
@@ -13,9 +13,11 @@ export class TasksService {
     // TODO: Implement Get tasks
   }
 
-  create(task: Task) {}
+  getAll() {}
 
-  remove(task: Task) {}
+  create(task) {}
 
-  update(task: Task, change: any) {}
+  remove(task) {}
+
+  update(task, change: any) {}
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from '../../../shared/models/task';
+import { Task } from '../../../shared/models/Task';
 
 @Component({
   selector: 'app-task-item',
@@ -10,13 +10,13 @@ export class TaskItemComponent implements OnInit {
   @Output() remove = new EventEmitter();
   @Output() update = new EventEmitter();
 
-  title = '';
+  content = '';
   editing = false;
 
   constructor() { }
 
   ngOnInit() {
-    this.title = this.task.title;
+    this.content = this.task.content;
   }
 
   toggleEdit(): void {
@@ -30,7 +30,7 @@ export class TaskItemComponent implements OnInit {
   saveTask(): void {
     if (this.editing) {
       this.update.emit({
-        title: this.title.trim()
+        title: this.content.trim()
       });
 
       this.stopEditing();
@@ -39,7 +39,7 @@ export class TaskItemComponent implements OnInit {
 
   changeStatus(): void {
     this.update.emit({
-      isDone: !this.task.isDone
+      isCompleted: !this.task.isCompleted
     });
   }
 
