@@ -1,6 +1,9 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
+using System.Net;
+using System.Web.Http;
 using System.Web.Http.Results;
 using TodoApp.WebAPI.Controllers;
 using TodoApp.WebAPI.Core;
@@ -37,6 +40,29 @@ namespace TodoApp.WebAPI.Tests.Controllers
             var result = _assignmentsController.Get();
 
             result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GetOne_UserSendsRequestWithInvalidId_ShouldReturnHttpNotFoundCode()
+        {
+            var assignment = new Assignment();
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            Action result = () => _assignmentsController.Get(2);
+
+            result.Should().Throw<HttpResponseException>()
+                .Which.Response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        }
+
+        [TestMethod]
+        public void GetOne_ValidRequest_ShouldReturnAssignment()
+        {
+            var assignment = new Assignment();
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController.Get(1);
+
+            result.Should().BeOfType<Assignment>();
         }
 
         [TestMethod]
