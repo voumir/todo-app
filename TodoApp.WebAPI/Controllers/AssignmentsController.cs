@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Web.Http;
 using TodoApp.WebAPI.Core;
 using TodoApp.WebAPI.Core.Dtos;
@@ -24,12 +25,26 @@ namespace TodoApp.WebAPI.Controllers
             var userId = User.Identity.GetUserId();
 
             if (userId == null)
-                return new List<Assignment>();
+                throw new HttpResponseException(HttpStatusCode.Unauthorized);
 
-            var assignments = _unitOfWork.Assignments
-                .GetUsersAssignments(userId);
+            return _unitOfWork.Assignments.GetUsersAssignments(userId);
+        }
 
-            return assignments;
+        [HttpGet]
+        [Route("api/assignments/{id}")]
+        public Assignment Get(int id)
+        {
+            var userId = User.Identity.GetUserId();
+
+            if (userId == null)
+                throw new HttpResponseException(HttpStatusCode.Unauthorized);
+
+            var assignment = _unitOfWork.Assignments.GetAssignment(id);
+
+            if (assignment == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            return assignment;
         }
 
         [HttpPost]
