@@ -5,15 +5,13 @@ import { ActivatedRoute } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { TokenResponse } from '../models/TokenResponse';
-import { Observable } from '../../../../node_modules/rxjs/Observable';
 import { LoginData } from '../models/LoginData';
-import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class AuthService {
   url = 'https://todoappwebapi20180726022310.azurewebsites.net';
   token: string;
+  userName: string;
 
   constructor(private route: ActivatedRoute, private _http: HttpClient) {}
 
@@ -23,22 +21,21 @@ export class AuthService {
   }
 
   login(data: LoginData) {
-    const httpBody = {
-      grant_type: 'password',
-      username: data.username,
-      password: data.password
-    };
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded'
-      })
-    };
+    const urlSearchParams = new URLSearchParams();
+    urlSearchParams.set('grant_type', 'password');
+    urlSearchParams.set('username', data.username);
+    urlSearchParams.set('password', data.password);
 
-    return this._http.post(`${this.url}/Token`, httpBody, httpOptions)
-      .subscribe(res => console.log(res));
+    const body = urlSearchParams.toString();
+
+    return this._http.post(`${this.url}/Token`, body, { headers })
+      .map(res => {
+        this.token = res['access_token'];
+        this.userName = res['userName'];
+      });
   }
-  // TODO: Login
-
   // TODO: Logout
 }
