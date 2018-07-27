@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../../shared/services/tasks.service';
 import { inputEntrance, taskAnimation } from '../../../shared/animations/animations';
+import { Task } from '../../../shared/models/Task';
 // TODO: Update
 @Component({
   selector: 'app-tasks',
@@ -9,11 +10,12 @@ import { inputEntrance, taskAnimation } from '../../../shared/animations/animati
 })
 export class TasksComponent implements OnInit {
   content = '';
+  tasks: any;
 
   constructor(public taskService: TasksService) { }
 
   ngOnInit() {
-    // TODO: GET tasks
+    this.taskService.getAll().subscribe(data => this.tasks = data);
   }
 
   clear(): void {

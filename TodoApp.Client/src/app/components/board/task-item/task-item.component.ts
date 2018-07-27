@@ -6,7 +6,7 @@ import { Task } from '../../../shared/models/Task';
   templateUrl: './task-item.component.html'
 })
 export class TaskItemComponent implements OnInit {
-  @Input('task') task: Task;
+  @Input('task') task: any;
   @Output() remove = new EventEmitter();
   @Output() update = new EventEmitter();
 

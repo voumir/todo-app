@@ -13,6 +13,6 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route, state: RouterStateSnapshot) {
     // TODO: Token verification
-    return false;
+    return true;
   }
 }
