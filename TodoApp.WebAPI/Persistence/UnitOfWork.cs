@@ -8,7 +8,7 @@ namespace TodoApp.WebAPI.Persistence
     {
         private readonly ApplicationDbContext _context;
 
-        public IAssignmentsRepository Assignments { get; set; }
+        public IAssignmentsRepository Assignments { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {

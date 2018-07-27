@@ -4,7 +4,7 @@ namespace TodoApp.WebAPI.Core
 {
     public interface IUnitOfWork
     {
-        IAssignmentsRepository Assignments { get; set; }
+        IAssignmentsRepository Assignments { get; }
         void Complete();
     }
 }
