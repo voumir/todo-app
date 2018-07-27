@@ -12,7 +12,7 @@ import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class AuthService {
-  url: 'https://todoappwebapi20180726022310.azurewebsites.net';
+  url = 'https://todoappwebapi20180726022310.azurewebsites.net';
   token: string;
 
   constructor(private route: ActivatedRoute, private _http: HttpClient) {}
@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(data: LoginData) {
-    const httpData = {
+    const httpBody = {
       grant_type: 'password',
       username: data.username,
       password: data.password
@@ -35,7 +35,7 @@ export class AuthService {
       })
     };
 
-    return this._http.post(`${this.url}/Token`, httpData, httpOptions)
+    return this._http.post(`${this.url}/Token`, httpBody, httpOptions)
       .subscribe(res => console.log(res));
   }
   // TODO: Login

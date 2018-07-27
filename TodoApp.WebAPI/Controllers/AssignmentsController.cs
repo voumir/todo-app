@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using TodoApp.WebAPI.Core;
 using TodoApp.WebAPI.Core.Dtos;
 using TodoApp.WebAPI.Core.Models;
@@ -10,6 +11,7 @@ using TodoApp.WebAPI.Core.Models;
 namespace TodoApp.WebAPI.Controllers
 {
     [Authorize]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AssignmentsController : ApiController
     {
         private readonly IUnitOfWork _unitOfWork;
