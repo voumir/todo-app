@@ -6,7 +6,7 @@ import { Task } from '../../../shared/models/Task';
   templateUrl: './task-item.component.html'
 })
 export class TaskItemComponent implements OnInit {
-  @Input('task') task: any;
+  @Input('task') task: Task;
   @Output() remove = new EventEmitter();
   @Output() update = new EventEmitter();
 
@@ -16,7 +16,7 @@ export class TaskItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.content = this.task.content;
+    this.content = this.task.Content;
   }
 
   toggleEdit(): void {
