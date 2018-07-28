@@ -44,6 +44,6 @@ export class AuthService {
   }
 
   logout() {
-
+    this.cookie.check('token') ? this.cookie.deleteAll() : console.error('Token does not exist');
   }
 }
