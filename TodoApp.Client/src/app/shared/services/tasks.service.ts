@@ -27,7 +27,9 @@ export class TasksService {
     );
   }
 
-  remove(task) {}
+  remove(task) {
+    // TODO: Implement this method
+  }
 
   update(taskId: number, change: any) {
     return this._http.put(
