@@ -10,22 +10,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class TasksService {
   url = 'https://todoappwebapi20180726022310.azurewebsites.net';
 
-  constructor(private auth: AuthService, private _http: HttpClient) {
-    // TODO: Implement Get tasks
-  }
+  constructor(private auth: AuthService, private _http: HttpClient) { }
 
   getAll() {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.auth.token}`
-    });
-    // No zaraz sie rozplacze XDDD nie chce juz w tym pisac
-    return this._http.get(`${this.url}/api/assignments`, { headers });
+    return this._http.get(`${this.url}/api/assignments`, { headers: this.getHeaders() });
   }
 
-  create(task) {}
+  create(content) {
+    return this._http.post(
+      `${this.url}/assignments`,
+      { Content: content },
+      { headers: this.getHeaders() }
+    );
+  }
 
   remove(task) {}
 
   update(task, change: any) {}
+
+  getHeaders() {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.auth.token}`
+    });
+  }
 }
