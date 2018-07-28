@@ -12,7 +12,7 @@ namespace TodoApp.WebAPI.Core.Models
 
         public void Update(AssignmentUpdateDto dto)
         {
-            Content = dto.Content;
+            Content = dto.Content ?? Content;
             IsCompleted = dto.IsCompleted;
         }
     }

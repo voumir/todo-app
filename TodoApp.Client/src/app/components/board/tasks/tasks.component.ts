@@ -55,8 +55,13 @@ export class TasksComponent implements OnInit, OnDestroy {
         const tasks = this.tasks;
         const index = tasks.findIndex(task => task.Id === taskId);
 
-        tasks[index].Content = change.Content || tasks[index].Content;
-        tasks[index].IsCompleted = change.IsCompleted || tasks[index].IsCompleted;
+        // tslint:disable-next-line:curly
+        if (change.Content)
+          tasks[index].Content = change.Content;
+
+        // tslint:disable-next-line:curly
+        if (change.IsCompleted !== null)
+          tasks[index].IsCompleted = change.IsCompleted;
       });
   }
 
