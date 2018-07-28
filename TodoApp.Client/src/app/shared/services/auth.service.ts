@@ -21,6 +21,8 @@ export class AuthService {
   }
 
   login(data: LoginData) {
+    this.getURL();
+
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
