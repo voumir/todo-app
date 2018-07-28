@@ -26,7 +26,13 @@ export class TasksService {
 
   remove(task) {}
 
-  update(task, change: any) {}
+  update(taskId: number, change: any) {
+    return this._http.put(
+      `${this.url}/api/assignments/${taskId}`,
+      change,
+      { headers: this.getHeaders() }
+    );
+  }
 
   getHeaders() {
     return new HttpHeaders({

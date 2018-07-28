@@ -19,8 +19,8 @@
   <app-task-item @taskAnimation
     *ngFor="let task of tasks"
     [task]="task"
-    (update)="taskService.update(task, $event)"
-    (remove)="taskService.remove(task)"></app-task-item>
+    (update)="updateTask(task.Id, $event)"
+    (remove)="removeTask(task.Id)"></app-task-item>
 </ul>
 
 <ng-template #loading>
