@@ -13,6 +13,7 @@ export class LoginComponent {
   constructor(private auth: AuthService) { }
 
   login() {
-    this.auth.login({ username: 'mazxaxz@gmail.com', password: 'Qwerty123+' });
+    this.auth.login({ username: 'mazxaxz@gmail.com', password: 'Qwerty123+' })
+      .subscribe(res => console.log(res));
   }
 }

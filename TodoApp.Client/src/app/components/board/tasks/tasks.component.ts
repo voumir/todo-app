@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TasksService } from '../../../shared/services/tasks.service';
 import { inputEntrance, taskAnimation } from '../../../shared/animations/animations';
 import { Task } from '../../../shared/models/Task';
+import { Subscription } from '../../../../../node_modules/rxjs/Subscription';
 // TODO: Update
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   animations: [inputEntrance, taskAnimation]
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent implements OnInit, OnDestroy {
   content = '';
-  tasks: any;
+  tasks: Task[];
+
+  taskSubscription: Subscription;
 
   constructor(public taskService: TasksService) { }
 
   ngOnInit() {
-    this.taskService.getAll().subscribe(data => this.tasks = data);
+    this.taskSubscription = this.taskService.getAll()
+      .subscribe((data: Task[]) => this.tasks = data);
+  }
+
+  ngOnDestroy() {
+    this.taskSubscription.unsubscribe();
   }
 
   clear(): void {

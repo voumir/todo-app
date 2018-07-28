@@ -3,13 +3,13 @@
     <span (click)="changeStatus()">
       <i class="far"
       [ngClass]="{
-        'fa-square':!task.isCompleted,
-        'fa-check-square':task.isCompleted
+        'fa-square':!task.IsCompleted,
+        'fa-check-square':task.IsCompleted
       }"></i>
     </span>
 
-    <span [class.task-done]="task.isCompleted">
-      {{ task.content }}
+    <span [class.task-done]="task.IsCompleted">
+      {{ task.Content }}
     </span>
 
     <span (click)="toggleEdit()">

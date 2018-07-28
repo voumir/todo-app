@@ -30,7 +30,7 @@ export class TaskItemComponent implements OnInit {
   saveTask(): void {
     if (this.editing) {
       this.update.emit({
-        title: this.content.trim()
+        Content: this.content.trim()
       });
 
       this.stopEditing();
@@ -39,7 +39,7 @@ export class TaskItemComponent implements OnInit {
 
   changeStatus(): void {
     this.update.emit({
-      isCompleted: !this.task.isCompleted
+      IsCompleted: !this.task.IsCompleted
     });
   }
 

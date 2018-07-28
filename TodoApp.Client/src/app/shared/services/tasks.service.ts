@@ -17,7 +17,7 @@ export class TasksService {
   getAll() {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': this.auth.token
+      'Authorization': `Bearer ${this.auth.token}`
     });
     // No zaraz sie rozplacze XDDD nie chce juz w tym pisac
     return this._http.get(`${this.url}/api/assignments`, { headers });
