@@ -3,7 +3,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { AuthService } from '../../shared/services/auth.service';
-// TODO: Update
+import { CookieService } from '../../../../node_modules/ngx-cookie-service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html'
@@ -13,7 +14,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   current: string;
   subscription: Subscription;
 
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    private cookie: CookieService) { }
 
   ngOnInit() {
     this.subscription = this.router.events.subscribe(event => {
@@ -27,8 +31,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  getUsername() {
+    return this.cookie.get('userName');
+  }
+
   logout(): void {
-    // TODO: Logout
+    this.auth.logout();
     this.router.navigate(['/']);
   }
 }

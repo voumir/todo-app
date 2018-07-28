@@ -5,12 +5,15 @@ import { Injectable } from '@angular/core';
 import { Task } from '../models/Task';
 import { AuthService } from './auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()
 export class TasksService {
   url = 'https://todoappwebapi20180726022310.azurewebsites.net';
 
-  constructor(private auth: AuthService, private _http: HttpClient) { }
+  constructor(
+    private _http: HttpClient,
+    private cookie: CookieService) { }
 
   getAll() {
     return this._http.get(`${this.url}/api/assignments`, { headers: this.getHeaders() });
@@ -37,7 +40,7 @@ export class TasksService {
   getHeaders() {
     return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.auth.token}`
+      'Authorization': `Bearer ${this.cookie.get('token')}`
     });
   }
 }

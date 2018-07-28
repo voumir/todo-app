@@ -30,9 +30,9 @@
           </li>
         </ng-template>
 
-        <li *ngIf="auth.userName; else anonymousUser" ngbDropdown class="nav-item dropdown">
+        <li *ngIf="getUsername(); else anonymousUser" ngbDropdown class="nav-item dropdown">
           <a ngbDropdownToggle class="nav-link dropdown-toggle py-2" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ auth.userName || 'User'}}
+            {{ getUsername() || 'User'}}
           </a>
 
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">

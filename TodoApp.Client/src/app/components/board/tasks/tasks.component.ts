@@ -65,5 +65,7 @@ export class TasksComponent implements OnInit, OnDestroy {
       });
   }
 
-  removeTask(taskId) {}
+  removeTask(taskId) {
+    // TODO: Implement this method
+  }
 }

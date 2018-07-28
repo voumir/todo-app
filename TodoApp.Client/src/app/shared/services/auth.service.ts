@@ -7,13 +7,16 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { LoginData } from '../models/LoginData';
 
+import { CookieService } from 'ngx-cookie-service';
+
 @Injectable()
 export class AuthService {
   url = 'https://todoappwebapi20180726022310.azurewebsites.net';
-  token: string;
-  userName: string;
 
-  constructor(private route: ActivatedRoute, private _http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private _http: HttpClient,
+    private cookie: CookieService) {}
 
   getURL(): void {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
@@ -35,9 +38,12 @@ export class AuthService {
 
     return this._http.post(`${this.url}/Token`, body, { headers })
       .map(res => {
-        this.token = res['access_token'];
-        this.userName = res['userName'];
+        this.cookie.set('token', res['access_token']);
+        this.cookie.set('userName', res['userName']);
       });
   }
-  // TODO: Logout
+
+  logout() {
+
+  }
 }

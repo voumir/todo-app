@@ -22,7 +22,8 @@ export class LoginComponent implements OnDestroy {
   }
 
   login() {
-    this.auth.login({ username: 'mazxaxz@gmail.com', password: 'Qwerty123+' })
+    this.loginSubscription = this.auth
+      .login({ username: 'mazxaxz@gmail.com', password: 'Qwerty123+' })
       .subscribe(_ => this.router.navigateByUrl(localStorage.getItem('returnUrl')));
   }
 }
