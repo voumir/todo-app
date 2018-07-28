@@ -12,7 +12,11 @@ export class AuthGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router) { }
 
   canActivate(route, state: RouterStateSnapshot) {
-    // TODO: Token verification
-    return true;
+    // tslint:disable-next-line:curly
+    if (this.auth.token)
+      return true;
+
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    return false;
   }
 }
