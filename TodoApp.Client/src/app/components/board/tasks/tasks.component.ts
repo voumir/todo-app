@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TasksService } from '../../../shared/services/tasks.service';
 import { inputEntrance, taskAnimation } from '../../../shared/animations/animations';
 import { Task } from '../../../shared/models/Task';
-import { Subscription } from '../../../../../node_modules/rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 // TODO: Update
 @Component({
   selector: 'app-tasks',
@@ -31,10 +31,11 @@ export class TasksComponent implements OnInit, OnDestroy {
   }
 
   saveTask(): void {
-    const content: string = this.content.trim();
+    const content = this.content.trim();
 
     if (content.length) {
-      this.taskService.create({ content });
+      this.taskService.create(content)
+        .subscribe((response: Task) => this.tasks.push(response));
     }
 
     this.clear();

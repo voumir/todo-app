@@ -18,7 +18,7 @@ export class TasksService {
 
   create(content) {
     return this._http.post(
-      `${this.url}/assignments`,
+      `${this.url}/api/assignments`,
       { Content: content },
       { headers: this.getHeaders() }
     );
