@@ -90,7 +90,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
 
             var result = _assignmentsController.Post(assignment);
 
-            result.Should().BeOfType<OkResult>();
+            result.Should().BeOfType<OkNegotiatedContentResult<Assignment>>();
         }
 
         [TestMethod]

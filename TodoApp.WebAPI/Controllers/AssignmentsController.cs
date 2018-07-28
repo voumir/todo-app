@@ -74,7 +74,7 @@ namespace TodoApp.WebAPI.Controllers
             _unitOfWork.Assignments.Add(assignment);
             _unitOfWork.Complete();
 
-            return Ok();
+            return Ok(assignment);
         }
 
         [HttpPut]
