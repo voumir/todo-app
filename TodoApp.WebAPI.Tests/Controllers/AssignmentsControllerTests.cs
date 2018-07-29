@@ -111,7 +111,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
             _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
 
             var result = _assignmentsController
-                .Update(1, new AssignmentUpdateDto {Content = "-"});
+                .Update(1, new AssignmentUpdateDto {Content = "--"});
 
             result.Should().BeOfType<UnauthorizedResult>();
         }
@@ -125,6 +125,55 @@ namespace TodoApp.WebAPI.Tests.Controllers
 
             var result = _assignmentsController
                 .Update(1, new AssignmentUpdateDto { Content = "--" });
+
+            result.Should().BeOfType<OkResult>();
+        }
+
+        [TestMethod]
+        public void Remove_NoAssignmentWithGivenIdExists_ShouldReturnNotFound()
+        {
+            var assignment = new Assignment();
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController.Remove(2);
+
+            result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [TestMethod]
+        public void Remove_AssignmentIsAlreadyRemoved_ShouldReturnBadRequest()
+        {
+            var assignment = new Assignment();
+            assignment.Remove();
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController.Remove(1);
+
+            result.Should().BeOfType<BadRequestErrorMessageResult>();
+        }
+
+        [TestMethod]
+        public void Remove_UserRemovesAnotherUsersAssignment_ShouldReturnUnauthorized()
+        {
+            var assignment = new Assignment { UserId = _userId + "-" };
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController.Remove(1);
+
+            result.Should().BeOfType<UnauthorizedResult>();
+        }
+
+        [TestMethod]
+        public void Remove_ValidRequest_ShouldReturnOk()
+        {
+            var assignment = new Assignment { UserId = _userId };
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController.Remove(1);
 
             result.Should().BeOfType<OkResult>();
         }

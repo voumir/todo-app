@@ -105,6 +105,9 @@ namespace TodoApp.WebAPI.Controllers
             if (assignment == null)
                 return NotFound();
 
+            if (assignment.IsRemoved)
+                return BadRequest("Assignment is already removed");
+
             if (assignment.UserId != User.Identity.GetUserId())
                 return Unauthorized();
 
