@@ -104,6 +104,19 @@ namespace TodoApp.WebAPI.Tests.Controllers
         }
 
         [TestMethod]
+        public void Update_UpdateContentIsNull_ShouldReturnOk()
+        {
+            var assignment = new Assignment { Id = 1, Content = "-", UserId = _userId };
+
+            _mockRepository.Setup(r => r.GetAssignment(1)).Returns(assignment);
+
+            var result = _assignmentsController
+                .Update(1, new AssignmentUpdateDto { IsCompleted = true });
+
+            result.Should().BeOfType<OkResult>();
+        }
+
+        [TestMethod]
         public void Update_UserUpdatesAnothersUserAssignment_ShouldReturnUnauthorized()
         {
             var assignment = new Assignment {Id = 1, Content = "-", UserId = _userId + "-"};
