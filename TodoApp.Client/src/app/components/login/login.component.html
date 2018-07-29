@@ -1,9 +1,18 @@
 <div @buttonsEntrance>
   <div class="row justify-content-md-center py-4">
     <div class="col col-md-6 text-center">
-      <button 
-        (click)="login()" 
-        class="btn btn-outline-danger btn-block">Login With Google</button>
+      
+      <h1 class="display-2 m-4">Login</h1>
+
+      <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{ errorMessage }}
+      </div>
+
+      <app-form 
+        [registration]="false" 
+        [buttonText]="'Log In'"
+        (emitter)="login($event)"></app-form>
+    
     </div>
   </div>
 </div>

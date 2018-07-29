@@ -9,6 +9,7 @@ import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { TasksService } from './services/tasks.service';
 import { UserService } from './services/user.service';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { UserService } from './services/user.service';
   exports: [
     FormsModule,
     CommonModule,
+    FormComponent,
     NgbModule.forRoot().ngModule
   ],
   providers: [
@@ -28,6 +30,7 @@ import { UserService } from './services/user.service';
     UserService,
     TasksService,
     CookieService
-  ]
+  ],
+  declarations: [FormComponent]
 })
 export class SharedModule { }

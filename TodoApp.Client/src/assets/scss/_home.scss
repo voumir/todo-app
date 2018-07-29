@@ -3,6 +3,10 @@
   @include text-shadow(0, 0, 30px, $primary-color);
 }
 
+.home-btn {
+  font-size: $home-text-size;
+}
+
 footer {
   position: fixed;
   bottom: 0; left: 0;

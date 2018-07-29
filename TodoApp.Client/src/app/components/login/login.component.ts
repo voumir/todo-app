@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { buttonsEntrance } from '../../shared/animations/animations';
 import { AuthService } from '../../shared/services/auth.service';
+import { UsersData } from '../../shared/models/LoginData';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,8 @@ import { AuthService } from '../../shared/services/auth.service';
   animations: [buttonsEntrance]
 })
 export class LoginComponent implements OnDestroy {
+  errorMessage = '';
+
   loginSubscription: Subscription;
 
   constructor(private auth: AuthService, private router: Router) { }
@@ -21,9 +24,12 @@ export class LoginComponent implements OnDestroy {
       this.loginSubscription.unsubscribe();
   }
 
-  login() {
+  login(userData: UsersData) {
     this.loginSubscription = this.auth
-      .login({ username: 'mazxaxz@gmail.com', password: 'Qwerty123+' })
-      .subscribe(_ => this.router.navigateByUrl(localStorage.getItem('returnUrl')));
+      .login(userData)
+      .subscribe(
+        _ => this.router.navigateByUrl(localStorage.getItem('returnUrl')),
+        err => this.errorMessage = err.error.error_description
+      );
   }
 }

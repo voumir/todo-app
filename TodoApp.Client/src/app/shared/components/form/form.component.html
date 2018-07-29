@@ -1,0 +1,47 @@
+<form (ngSubmit)="emit()">
+  <div class="form-group">
+
+    <fieldset>
+      <input 
+        [(ngModel)]="email" 
+        name="email" 
+        type="email"
+        id="email"
+        autocomplete="off"
+        class="form-control" 
+        required>
+
+      <label for="email">Email</label>
+    </fieldset>
+
+    <fieldset>
+      <input 
+        [(ngModel)]="password" 
+        name="password"
+        type="password" 
+        id="password"
+        autocomplete="off"
+        class="form-control" 
+        required>
+
+        <label for="password">Password</label>
+    </fieldset>
+
+    <fieldset *ngIf="registration">
+      <input 
+        [(ngModel)]="confirmPassword" 
+        name="confirmPassword"
+        type="confirmPassword" 
+        id="confirmPassword"
+        autocomplete="off"
+        class="form-control" 
+        required>
+
+        <label for="confirmPassword">Confirm Password</label>
+    </fieldset>
+
+    <button class="btn btn-outline-success btn-lg btn-block my-4">
+      {{ buttonText }}
+    </button>
+  </div>
+</form>

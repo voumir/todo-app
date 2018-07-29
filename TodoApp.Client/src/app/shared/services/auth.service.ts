@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
-import { LoginData } from '../models/LoginData';
+import { UsersData } from '../models/LoginData';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +21,7 @@ export class AuthService {
     localStorage.setItem('returnUrl', returnUrl);
   }
 
-  login(data: LoginData) {
+  login(data: UsersData) {
     this.getURL();
 
     const headers = new HttpHeaders();
