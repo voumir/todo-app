@@ -12,7 +12,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
-  { path: '**', component: HomeComponent }
+  { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
 @NgModule({
