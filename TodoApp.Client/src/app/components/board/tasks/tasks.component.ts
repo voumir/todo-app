@@ -16,6 +16,7 @@ export class TasksComponent implements OnInit, OnDestroy {
   taskSubscription: Subscription;
   addTaskSubscription: Subscription;
   updateTaskSubscription: Subscription;
+  removeTaskSubscription: Subscription;
 
   constructor(private taskService: TasksService) { }
 
@@ -66,6 +67,10 @@ export class TasksComponent implements OnInit, OnDestroy {
   }
 
   removeTask(taskId) {
-    // TODO: Implement this method
+    this.removeTaskSubscription = this.taskService.remove(taskId)
+      .subscribe(_ => {
+        const index = this.tasks.findIndex(task => task.Id === taskId);
+        this.tasks.splice(index, 1);
+      });
   }
 }

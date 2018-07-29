@@ -27,8 +27,11 @@ export class TasksService {
     );
   }
 
-  remove(task) {
-    // TODO: Implement this method
+  remove(taskId) {
+    return this._http.delete(
+      `${this.url}/api/assignments/${taskId}`,
+      { headers: this.getHeaders() }
+    );
   }
 
   update(taskId: number, change: any) {
