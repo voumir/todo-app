@@ -95,5 +95,24 @@ namespace TodoApp.WebAPI.Controllers
 
             return Ok();
         }
+
+        [HttpDelete]
+        [Route("api/assignments/{id}")]
+        public IHttpActionResult Remove(int id)
+        {
+            var assignment = _unitOfWork.Assignments.GetAssignment(id);
+
+            if (assignment == null)
+                return NotFound();
+
+            if (assignment.UserId != User.Identity.GetUserId())
+                return Unauthorized();
+
+            assignment.Remove();
+
+            _unitOfWork.Complete();
+
+            return Ok();
+        }
     }
 }

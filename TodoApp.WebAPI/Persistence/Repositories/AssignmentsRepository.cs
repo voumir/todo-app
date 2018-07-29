@@ -17,7 +17,7 @@ namespace TodoApp.WebAPI.Persistence.Repositories
         public IEnumerable<Assignment> GetUsersAssignments(string userId)
         {
             return _context.Assignments
-                .Where(a => a.UserId == userId)
+                .Where(a => a.UserId == userId && !a.IsRemoved)
                 .ToList();
         }
 
