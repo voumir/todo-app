@@ -1,13 +1,11 @@
 import 'rxjs/add/operator/map';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { LoginData } from '../models/LoginData';
-
 import { CookieService } from 'ngx-cookie-service';
+
+import { LoginData } from '../models/LoginData';
 
 @Injectable()
 export class AuthService {

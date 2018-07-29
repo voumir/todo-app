@@ -1,9 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { buttonsEntrance } from '../../shared/animations/animations';
 import { AuthService } from '../../shared/services/auth.service';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-login',

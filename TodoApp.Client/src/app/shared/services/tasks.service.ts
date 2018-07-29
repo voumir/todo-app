@@ -1,10 +1,5 @@
-import 'rxjs/add/operator/take';
-
-import { Injectable } from '@angular/core';
-
-import { Task } from '../models/Task';
-import { AuthService } from './auth.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable()

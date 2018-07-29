@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TasksService } from '../../../shared/services/tasks.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+
 import { inputEntrance, taskAnimation } from '../../../shared/animations/animations';
 import { Task } from '../../../shared/models/Task';
-import { Subscription } from 'rxjs/Subscription';
+import { TasksService } from '../../../shared/services/tasks.service';
 
 @Component({
   selector: 'app-tasks',
