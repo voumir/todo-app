@@ -6,5 +6,6 @@ namespace TodoApp.WebAPI.Persistence
     public interface IApplicationDbContext
     {
         DbSet<Assignment> Assignments { get; set; }
+        IDbSet<ApplicationUser> Users { get; set; }
     }
 }
