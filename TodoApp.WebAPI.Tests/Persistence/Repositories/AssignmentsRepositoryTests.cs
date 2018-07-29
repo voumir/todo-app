@@ -63,5 +63,29 @@ namespace TodoApp.WebAPI.Tests.Persistence.Repositories
 
             assignments.Should().Contain(assignment);
         }
+
+        [TestMethod]
+        public void GetAssignment_AssignmentWithGivenIdDoesNotExist_ShouldBeNull()
+        {
+            var assignment = new Assignment { Content = "-", UserId = "1" };
+
+            _mockAssignments.SetSource(new List<Assignment> { assignment });
+
+            var result = _repository.GetAssignment(2);
+
+            result.Should().BeNull();
+        }
+
+        [TestMethod]
+        public void GetAssignment_ValidRequest_ShouldBeAssignment()
+        {
+            var assignment = new Assignment { Content = "-", UserId = "1", Id = 1 };
+
+            _mockAssignments.SetSource(new List<Assignment> { assignment });
+
+            var result = _repository.GetAssignment(1);
+
+            result.Should().Be(assignment);
+        }    
     }
 }
