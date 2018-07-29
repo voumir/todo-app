@@ -290,6 +290,10 @@
     <Compile Include="Persistence\Migrations\201807191009301_CreateAssignmentTable1.Designer.cs">
       <DependentUpon>201807191009301_CreateAssignmentTable1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\201807290937192_IsRemovedFieldAdded.cs" />
+    <Compile Include="Persistence\Migrations\201807290937192_IsRemovedFieldAdded.Designer.cs">
+      <DependentUpon>201807290937192_IsRemovedFieldAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\Models\AccountBindingModels.cs" />
     <Compile Include="Core\Models\AccountViewModels.cs" />
@@ -387,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201807191009301_CreateAssignmentTable1.resx">
       <DependentUpon>201807191009301_CreateAssignmentTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201807290937192_IsRemovedFieldAdded.resx">
+      <DependentUpon>201807290937192_IsRemovedFieldAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
