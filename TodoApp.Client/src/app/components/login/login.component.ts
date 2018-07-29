@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { buttonsEntrance } from '../../shared/animations/animations';
+import { UsersData } from '../../shared/models/UsersData';
 import { AuthService } from '../../shared/services/auth.service';
-import { UsersData } from '../../shared/models/LoginData';
 
 @Component({
   selector: 'app-login',

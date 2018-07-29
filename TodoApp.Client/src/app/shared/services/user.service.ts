@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { RegisterUserParams } from '../models/RegisterUserParams';
+import { UsersData } from '../models/UsersData';
 
 @Injectable()
 export class UserService {
@@ -9,9 +9,8 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  register(params: RegisterUserParams) {
+  register(params: UsersData) {
     return this._http
       .post(`${this.url}/api/Account/Register`, params);
   }
-
 }

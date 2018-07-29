@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
-import { UsersData } from '../models/LoginData';
+import { UsersData } from '../models/UsersData';
 
 @Injectable()
 export class AuthService {

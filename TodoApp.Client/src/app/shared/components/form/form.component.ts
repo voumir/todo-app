@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -17,10 +17,12 @@ export class FormComponent {
   constructor() { }
 
   emit() {
-    return this.emitter.emit({
-      username: this.email,
+    const data = {
       password: this.password,
       confirmPassword: this.confirmPassword
-    });
+    };
+    this.registration ? data['email'] = this.email : data['username'] = this.email;
+
+    return this.emitter.emit(data);
   }
 }

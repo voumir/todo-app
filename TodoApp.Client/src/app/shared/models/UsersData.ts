@@ -1,5 +1,6 @@
 export interface UsersData {
-  username: string;
+  username?: string;
+  email?: string;
   password: string;
   cofirmPassword: string;
 }
