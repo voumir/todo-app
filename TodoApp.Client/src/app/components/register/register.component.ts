@@ -13,6 +13,7 @@ import { UserService } from '../../shared/services/user.service';
 })
 export class RegisterComponent implements OnDestroy {
   errorMessage = '';
+  requestPending = false;
 
   registerSubscription: Subscription;
 
@@ -24,10 +25,18 @@ export class RegisterComponent implements OnDestroy {
   }
 
   register(userData: UsersData) {
+    this.requestPending = true;
+
     this.registerSubscription = this.userService.register(userData)
       .subscribe(
-        _ => this.router.navigate(['/login']),
-        err => this.errorMessage = Object.values(err.error.ModelState).join(' ')
+        _ => {
+          this.router.navigate(['/login']);
+          this.requestPending = false;
+        },
+        err => {
+          this.errorMessage = Object.values(err.error.ModelState).join(' ');
+          this.requestPending = false;
+        }
       );
   }
 }

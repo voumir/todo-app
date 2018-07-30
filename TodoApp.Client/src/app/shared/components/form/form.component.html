@@ -40,8 +40,14 @@
         <label for="confirmPassword">Confirm Password</label>
     </fieldset>
 
-    <button class="btn btn-outline-success btn-lg btn-block my-4">
-      {{ buttonText }}
+    <button [disabled]="requestPending" class="btn btn-outline-success btn-lg btn-block my-4">
+      <ng-container *ngIf="!requestPending; else loading">
+        {{ buttonText }}
+      </ng-container>
+
+      <ng-template #loading>
+        <i class="fas fa-spinner fa-spin"></i>
+      </ng-template>
     </button>
   </div>
 </form>

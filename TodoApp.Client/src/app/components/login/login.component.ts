@@ -13,6 +13,7 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class LoginComponent implements OnDestroy {
   errorMessage = '';
+  requestPending = false;
 
   loginSubscription: Subscription;
 
@@ -25,11 +26,19 @@ export class LoginComponent implements OnDestroy {
   }
 
   login(userData: UsersData) {
+    this.requestPending = true;
+
     this.loginSubscription = this.auth
       .login(userData)
       .subscribe(
-        _ => this.router.navigateByUrl(localStorage.getItem('returnUrl')),
-        err => this.errorMessage = err.error.error_description
+        _ => {
+          this.router.navigateByUrl(localStorage.getItem('returnUrl'));
+          this.requestPending = false;
+        },
+        err => {
+          this.errorMessage = err.error.error_description;
+          this.requestPending = false;
+        }
       );
   }
 }

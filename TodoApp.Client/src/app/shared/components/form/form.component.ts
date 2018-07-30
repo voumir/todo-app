@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class FormComponent {
   @Input('registration') registration: boolean;
   @Input('buttonText') buttonText: string;
+  @Input('requestPending') requestPending: boolean;
 
   @Output() emitter = new EventEmitter();
 
