@@ -53,17 +53,11 @@ export class TasksComponent implements OnInit, OnDestroy {
 
   updateTask(taskId, change) {
     this.updateTaskSubscription = this.taskService.update(taskId, change)
-      .subscribe(_ => {
-        const tasks = this.tasks;
-        const index = tasks.findIndex(task => task.Id === taskId);
+      .subscribe((updatedTask: Task) => {
+        const index = this.tasks.findIndex(task => task.Id === taskId);
 
-        // tslint:disable-next-line:curly
-        if (change.Content)
-          tasks[index].Content = change.Content;
-
-        // tslint:disable-next-line:curly
-        if (change.IsCompleted !== null)
-          tasks[index].IsCompleted = change.IsCompleted;
+        this.tasks[index].Content = updatedTask.Content;
+        this.tasks[index].IsCompleted = updatedTask.IsCompleted;
       });
   }
 
