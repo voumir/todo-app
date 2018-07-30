@@ -53,10 +53,6 @@ namespace TodoApp.WebAPI.Controllers
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
         // GET api/Account/UserInfo
-        /// <summary>
-        /// Returns current user informations
-        /// </summary>
-        /// <returns></returns>
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("UserInfo")]
         public UserInfoViewModel GetUserInfo()
@@ -72,10 +68,6 @@ namespace TodoApp.WebAPI.Controllers
         }
 
         // POST api/Account/Logout
-        /// <summary>
-        /// Deletes Cookie authentication token
-        /// </summary>
-        /// <returns></returns>
         [Route("Logout")]
         public IHttpActionResult Logout()
         {
@@ -124,11 +116,6 @@ namespace TodoApp.WebAPI.Controllers
         }
 
         // POST api/Account/ChangePassword
-        /// <summary>
-        /// Changes current users password
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
@@ -149,11 +136,6 @@ namespace TodoApp.WebAPI.Controllers
         }
 
         // POST api/Account/SetPassword
-        /// <summary>
-        /// Sets new password for user
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         [Route("SetPassword")]
         public async Task<IHttpActionResult> SetPassword(SetPasswordBindingModel model)
         {
@@ -211,11 +193,6 @@ namespace TodoApp.WebAPI.Controllers
         }
 
         // POST api/Account/RemoveLogin
-        /// <summary>
-        /// Deletes users Account
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         [Route("RemoveLogin")]
         public async Task<IHttpActionResult> RemoveLogin(RemoveLoginBindingModel model)
         {
@@ -343,11 +320,6 @@ namespace TodoApp.WebAPI.Controllers
         }
 
         // POST api/Account/Register
-        /// <summary>
-        /// Registers users with given data
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)

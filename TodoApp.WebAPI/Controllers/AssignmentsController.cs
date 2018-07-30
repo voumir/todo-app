@@ -21,10 +21,6 @@ namespace TodoApp.WebAPI.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        /// <summary>
-        /// Returns list of Assignments for logged user
-        /// </summary>
-        /// <returns></returns>
         [HttpGet]
         public IEnumerable<Assignment> Get()
         {
@@ -36,11 +32,6 @@ namespace TodoApp.WebAPI.Controllers
             return _unitOfWork.Assignments.GetUsersAssignments(userId);
         }
 
-        /// <summary>
-        /// Returns Single Assignment with given id for current user
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpGet]
         [Route("api/assignments/{id}")]
         public Assignment Get(int id)
@@ -58,11 +49,6 @@ namespace TodoApp.WebAPI.Controllers
             return assignment;
         }
 
-        /// <summary>
-        /// Creates Assignment object in database with given Http body data
-        /// </summary>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPost]
         public IHttpActionResult Post([FromBody]AssignmentDto dto)
         {
@@ -91,12 +77,6 @@ namespace TodoApp.WebAPI.Controllers
             return Ok(assignment);
         }
 
-        /// <summary>
-        /// Updates Assignment with given id and Http body data
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="dto"></param>
-        /// <returns></returns>
         [HttpPut]
         [Route("api/assignments/{id}")]
         public IHttpActionResult Update(int id, [FromBody]AssignmentUpdateDto dto)
@@ -116,11 +96,6 @@ namespace TodoApp.WebAPI.Controllers
             return Ok(assignment);
         }
 
-        /// <summary>
-        /// Changes IsRemoved field in Database (does NOT remove item from database)
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete]
         [Route("api/assignments/{id}")]
         public IHttpActionResult Remove(int id)
