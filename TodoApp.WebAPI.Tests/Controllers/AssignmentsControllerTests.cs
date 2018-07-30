@@ -113,7 +113,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
             var result = _assignmentsController
                 .Update(1, new AssignmentUpdateDto { IsCompleted = true });
 
-            result.Should().BeOfType<OkResult>();
+            result.Should().BeOfType<OkNegotiatedContentResult<Assignment>>();
         }
 
         [TestMethod]
@@ -139,7 +139,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
             var result = _assignmentsController
                 .Update(1, new AssignmentUpdateDto { Content = "--" });
 
-            result.Should().BeOfType<OkResult>();
+            result.Should().BeOfType<OkNegotiatedContentResult<Assignment>>();
         }
 
         [TestMethod]

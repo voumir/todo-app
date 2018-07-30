@@ -93,7 +93,7 @@ namespace TodoApp.WebAPI.Controllers
 
             _unitOfWork.Complete();
 
-            return Ok();
+            return Ok(assignment);
         }
 
         [HttpDelete]
