@@ -39,6 +39,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Database structure
 Current SQL structure:  
+![database](https://user-images.githubusercontent.com/32012952/43396963-9a0461ba-9403-11e8-9e7c-02798ec3236b.PNG)
 
 Old NoSQL structure: 
 ```javascript
