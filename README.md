@@ -64,9 +64,7 @@ Old NoSQL structure:
 ## Packages used
 * [ng-bootstrap](https://ng-bootstrap.github.io/#/home)
 * [angular-particle](https://www.npmjs.com/package/angular-particle)
-* [angularfire2](https://www.npmjs.com/package/angularfire2)
 * [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)
-* [firebase](https://www.npmjs.com/package/firebase)
 
 ## Preview
 ![home](https://user-images.githubusercontent.com/32012952/43396636-6eea238a-9402-11e8-9a27-b72ec8fa04be.PNG)
