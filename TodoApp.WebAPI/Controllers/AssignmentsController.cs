@@ -35,7 +35,7 @@ namespace TodoApp.WebAPI.Controllers
 
             var assignments = _unitOfWork.Assignments.GetUsersAssignments(userId);
 
-            return assignments.Select(_mapper.Map<Assignment, AssignmentGetDto>);
+            return assignments.Select(_mapper.Map<Assignment, AssignmentGetDto>).ToList();
         }
 
         [HttpGet]

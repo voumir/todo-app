@@ -3,6 +3,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Results;
@@ -46,6 +47,19 @@ namespace TodoApp.WebAPI.Tests.Controllers
             var result = _assignmentsController.Get();
 
             result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void Get_ValidRequest_ShouldReturnListOfAssignments()
+        {
+            var assignment = new Assignment { UserId = _userId};
+            var assignments = new List<Assignment>{ assignment };
+
+            _mockRepository.Setup(r => r.GetUsersAssignments(_userId)).Returns(assignments);
+
+            var result = _assignmentsController.Get();
+
+            result.Should().BeOfType<List<AssignmentGetDto>>();
         }
 
         [TestMethod]
