@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using AutoMapper;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -15,26 +17,30 @@ namespace TodoApp.WebAPI.Controllers
     public class AssignmentsController : ApiController
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public AssignmentsController(IUnitOfWork unitOfWork)
+        public AssignmentsController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<Assignment> Get()
+        public IEnumerable<AssignmentGetDto> Get()
         {
             var userId = User.Identity.GetUserId();
 
             if (userId == null)
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
 
-            return _unitOfWork.Assignments.GetUsersAssignments(userId);
+            var assignments = _unitOfWork.Assignments.GetUsersAssignments(userId);
+
+            return assignments.Select(_mapper.Map<Assignment, AssignmentGetDto>);
         }
 
         [HttpGet]
         [Route("api/assignments/{id}")]
-        public Assignment Get(int id)
+        public AssignmentGetDto Get(int id)
         {
             var userId = User.Identity.GetUserId();
 
@@ -46,7 +52,7 @@ namespace TodoApp.WebAPI.Controllers
             if (assignment == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            return assignment;
+            return _mapper.Map<AssignmentGetDto>(assignment);
         }
 
         [HttpPost]

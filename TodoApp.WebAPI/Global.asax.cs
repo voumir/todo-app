@@ -1,7 +1,9 @@
-﻿using System.Web.Http;
+﻿using AutoMapper;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TodoApp.WebAPI.App_Start;
 
 namespace TodoApp.WebAPI
 {
@@ -9,6 +11,7 @@ namespace TodoApp.WebAPI
     {
         protected void Application_Start()
         {
+            Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

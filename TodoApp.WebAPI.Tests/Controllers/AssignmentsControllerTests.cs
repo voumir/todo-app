@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using AutoMapper;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;
@@ -29,9 +30,14 @@ namespace TodoApp.WebAPI.Tests.Controllers
             var mockUoW = new Mock<IUnitOfWork>();
             mockUoW.SetupGet(u => u.Assignments).Returns(_mockRepository.Object);
 
-            _assignmentsController = new AssignmentsController(mockUoW.Object);
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<AssignmentGetDto, Assignment>());
+            var mapper = config.CreateMapper();
+
+            _assignmentsController = new AssignmentsController(mockUoW.Object, mapper);
             _userId = "1";
             _assignmentsController.MockCurrentUser(_userId, "user1@domain.com");
+
+            
         }
 
         [TestMethod]
@@ -62,7 +68,7 @@ namespace TodoApp.WebAPI.Tests.Controllers
 
             var result = _assignmentsController.Get(1);
 
-            result.Should().BeOfType<Assignment>();
+            result.Should().BeOfType<AssignmentGetDto>();
         }
 
         [TestMethod]
