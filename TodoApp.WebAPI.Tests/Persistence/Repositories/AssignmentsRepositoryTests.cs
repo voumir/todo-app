@@ -86,6 +86,15 @@ namespace TodoApp.WebAPI.Tests.Persistence.Repositories
             var result = _repository.GetAssignment(1);
 
             result.Should().Be(assignment);
-        }    
+        }
+
+        [TestMethod]
+        public void Add_ValidRequest_ShouldBeOk()
+        {
+            var assignment = new Assignment();
+            _repository.Add(assignment);
+
+            _mockAssignments.Verify(r => r.Add(It.IsAny<Assignment>()), Times.Once);
+        }
     }
 }

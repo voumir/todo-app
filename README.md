@@ -7,7 +7,7 @@ Backend Preview: [https://todoappwebapi20180726022310.azurewebsites.net/](https:
 
 ## Info
 API is open for any website, so you can make your own Frontend and link it with this projects backend. Just use the APIs link.  
-Backend have documentation at it's website's subpage. You can find it [here](https://todoappwebapi20180726022310.azurewebsites.net/Help).
+Backend have documentation at its websites subpage. You can find it [here](https://todoappwebapi20180726022310.azurewebsites.net/Help).
 
 ## Running
 First, `cd` into TodoApp.Client then run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.  
