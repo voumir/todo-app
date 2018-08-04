@@ -65,6 +65,10 @@ Old NoSQL structure:
 * [ng-bootstrap](https://ng-bootstrap.github.io/#/home)
 * [angular-particle](https://www.npmjs.com/package/angular-particle)
 * [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)
+* [AutoMapper](https://automapper.org/)
+* [Ninject](http://www.ninject.org/)
+* [FluentAssertions](https://fluentassertions.com/)
+* [Moq](https://github.com/moq/moq4)
 
 ## Preview
 ![home](https://user-images.githubusercontent.com/32012952/43396636-6eea238a-9402-11e8-9a27-b72ec8fa04be.PNG)
